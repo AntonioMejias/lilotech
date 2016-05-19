@@ -1,7 +1,7 @@
 <ion-view >
   <ion-content class="padding m-padding principal-background" ng-controller="LogiCtrl as login">
-    <section id="login-wrapp" class="padding door" >
-
+    <section id="login-wrapp" ng-class ="login.animate.puerta" class="padding door" >
+       
     <div id="login">
         <section id="header-logo">
             <img src="/img/iconoapp.png" class ="center-horizontal" alt="lilotech" width="83" height="80">
@@ -18,12 +18,25 @@
                 </label>
             </div>
     	</form>
-        <div class="right-content">
-                <button class="manilla" style="border-radius: 50%; margin: 20px 0px 0px 0px; background:none;border-style: none"> <img class =""src="/img/manilla.png" class ="" alt="lilotech" width="103" height="60"></button>
 
 
-                <button class="manilla" style="border-radius: 50%; margin: 20px 0px 0px 0px; background:none;border-style: none"> <img class =""src="/img/registrarse.png" class ="" alt="lilotech" width="73" height="70"></button>
-        </div>
+       <div id="button-login-wrapper">
+            <div class="right-content">
+                 <button ng-class="login.animate.manilla" ng-click="login.login()"class="mani" style="border-radius: 50%;background:none;border-style: none;padding-right: 8px; "> <img class =""src="/img/manilla.png" class ="" alt="lilotech" width="130" height="80"></button>
+            </div>
+       
+
+      
+            <div class="right-content clear-float" >
+                 <button ng-class="" class="cerradura" style="border-radius: 50%; background:none;border-style: none; padding-right: 0px!important;"> <img class =""src="/img/registrarse.png" class ="" alt="lilotech" width="70" height="63"></button>
+            </div>
+       </div> 
+       
+               
+
+
+                
+       
     </div>
     	
     </section>

@@ -93,35 +93,77 @@ input,a {
 	margin:auto;
 }
 
-.manilla {
+/*.manilla {
 	-moz-transform: rotate(0deg) translateX(0px) translateY(0px);
--webkit-transform: rotate(0deg) translateX(0px) translateY(0px);
--o-transform: rotate(0deg) translateX(0px) translateY(0px);
--ms-transform: rotate(0deg) translateX(0px) translateY(0px);
-transform: rotate(0deg) translateX(0px) translateY(0px);
--webkit-transition: all .6s ease-out;
--moz-transition: all .6s ease-out;
--ms-transition: all .6s ease-out;
--o-transition: all .6s ease-out;
-transition: all .6s ease-out;
+    -webkit-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -o-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -ms-transform: rotate(0deg) translateX(0px) translateY(0px);
+    transform: rotate(0deg) translateX(0px) translateY(0px);
+    -webkit-transition: all .6s ease-out;
+    -moz-transition: all .6s ease-out;
+    -ms-transition: all .6s ease-out;
+    -o-transition: all .6s ease-out;
+    transition: all .6s ease-out;
+
+}*/
+.manilla:active {
+	-moz-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -webkit-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -o-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -ms-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    transform: rotate(-25deg) translateX(0px) translateY(18px);
+    transition: .6s ease-out;
+}
+
+.cerraduraAnimate {
+    -moz-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -webkit-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -o-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -ms-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    transform: rotate(-25deg) translateX(0px) translateY(18px);
+    transition: .6s ease-out;
+}
+
+.cerradura {
+
+    -moz-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -webkit-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -o-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -ms-transform: rotate(0deg) translateX(0px) translateY(0px);
+    transform: rotate(0deg) translateX(0px) translateY(0px);
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
 
 }
-.manilla:hover {
-	-moz-transform: rotate(-25deg) translateX(0px) translateY(25px);
--webkit-transform: rotate(-25deg) translateX(0px) translateY(25px);
--o-transform: rotate(-25deg) translateX(0px) translateY(25px);
--ms-transform: rotate(-25deg) translateX(0px) translateY(25px);
-transform: rotate(-25deg) translateX(0px) translateY(18px);
+
+.cerradura:active {
+
+    -moz-transform: rotate(-90deg) translateX(0px)  ;
+    -webkit-transform: rotate(-90deg) translateX(0px) ;
+    -o-transform: rotate(-90deg) translateX(0px) ;
+    -ms-transform: rotate(-90deg) translateX(0px) ;
+    transform: rotate(-90deg) translateX(0px) ;
+
 }
 .right-content {
 	
 }
 
 .right-content > * {
-	display: block;
-	margin: 0 auto;
+	float:right;
 }
-/*.door {
+
+#button-login-wrapper {
+  margin-top: 20px;
+}
+
+.clear-float {
+  clear:both;
+}
+.door {
 
 	-webkit-transform-style: preserve-3d;
     -webkit-perspective: 550px;
@@ -142,9 +184,17 @@ transform: rotate(-25deg) translateX(0px) translateY(18px);
  
 }
 
-.door:hover{
+/*.door:hover{
     -webkit-transform: scale(0.05,1) skew(0deg,20deg);
     -moz-transform: scale(0.05,1) skew(0deg,20deg);
     -o-transform: scale(0.05,1) skew(0deg,20deg);
     transform: scale(0.05,1) skew(0deg,20deg);
 }*/
+
+.openingDoor{
+    -webkit-transform: scale(0.05,1) skew(0deg,20deg);
+    -moz-transform: scale(0.05,1) skew(0deg,20deg);
+    -o-transform: scale(0.05,1) skew(0deg,20deg);
+    transform: scale(0.05,1) skew(0deg,20deg);
+    transition: all 1s;
+}
