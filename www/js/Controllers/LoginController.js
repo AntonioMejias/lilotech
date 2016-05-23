@@ -1,6 +1,6 @@
 (function() {
 	angular.module('lilotech')
-		.controller('LogiCtrl', ['$scope', LoginCtrl]);
+		.controller('LoginCtrl', ['$scope', LoginCtrl]);
 
 	function LoginCtrl($scope) {
 
@@ -23,7 +23,7 @@
 					
 				});
 				
-			}, 600);
+			}, 750);
 
 		}
 

@@ -81,9 +81,12 @@ angular.module('lilotech', ['ionic', 'ngResource', 'LocalStorageModule'])
 
     .state('login', {
         url: '/login',
-        templateUrl: 'templates/login-view.html'
+        templateUrl: 'templates/login-view.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
 
-    });
+
+    })
 
     .state('home', {
         url: '/home',
@@ -92,6 +95,6 @@ angular.module('lilotech', ['ionic', 'ngResource', 'LocalStorageModule'])
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
 
 });
