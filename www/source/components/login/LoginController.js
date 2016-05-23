@@ -1,8 +1,8 @@
 (function() {
 	angular.module('lilotech')
-		.controller('LogiCtrl', ['$scope', LoginCtrl]);
+		.controller('LoginController', LoginController);
 
-	function LoginCtrl($scope) {
+	function LoginController($scope) {
 
 		var self = this;
 		this.user = {};
@@ -23,7 +23,7 @@
 					
 				});
 				
-			}, 600);
+			}, 750);
 
 		}
 
