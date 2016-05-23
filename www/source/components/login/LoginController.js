@@ -1,8 +1,10 @@
 (function() {
 	angular.module('lilotech')
-		.controller('LoginCtrl', ['$scope', LoginCtrl]);
+	.controller('LoginController', LoginController);
 
-	function LoginCtrl($scope) {
+	LoginController.$inject = ['$scope'];
+
+	function LoginController($scope) {
 
 		var self = this;
 		this.user = {};
