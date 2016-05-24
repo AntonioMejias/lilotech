@@ -11,14 +11,14 @@ angular.module('lilotech', ['ionic', 'ngResource', 'LocalStorageModule'])
     $stateProvider
     .state('login', {
         url: '/login',
-        templateUrl: 'source/components/login/login-view.html',
+        templateUrl: 'source/components/login/loginView.html',
         controller : 'LoginController as login'
 
     })
 
     .state('home', {
         url: '/home',
-        templateUrl: 'source/components/home/home-view.html',
+        templateUrl: 'source/components/home/homeView.html',
         controller : 'HomeController as home'
 
     });

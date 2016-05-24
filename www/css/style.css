@@ -208,7 +208,21 @@ input,a {
 }
 
 /* Home */
+.bar_header{
+    height: 70px !important;
+}
+
 .nav-bar{
     color:black;
     font-size: 30px !important;
+}
+
+.img_head_left{
+    height: 32px;
+    width: 35px;
+}
+
+.img_head_right{
+    height: 36px;
+    width: 36px;
 }
