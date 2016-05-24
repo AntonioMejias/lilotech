@@ -7,7 +7,64 @@
     font-family: "eurofurence" !important;
 }
 
-/**SOBRESCRITO**/
+/**** GLOBAL RULES ****/
+
+
+p {
+    font-size:26px !important;
+}
+
+input {
+    padding: 0px !important;
+}
+
+input,a {
+    font-size:18px !important;
+    color:black !important;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.principal-background {
+    background-color:  #3399FF;
+
+}
+
+.textwhite {
+    color:white !important;
+}
+
+.m-padding {
+    padding: 25px 25px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.no-top{
+    margin-top:0px !important;
+}
+
+.center-horizontal {
+    display: block;
+    margin:auto;
+}
+
+
+.clear-float {
+  clear:both;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
+
+
+/***************************/
+
+/**** Ionic Class (OVERRIDE) ****/
     .list.list-inset {
     background: none;
 }
@@ -32,37 +89,12 @@
   text-align: center;
 }
 
+/**************************/
 
-/************/
 
-p {
-    font-size:26px !important;
-}
+/****** Login Rules ******/
 
-input {
-    padding: 0px !important;
-}
 
-input,a {
-    font-size:18px !important;
-    color:black !important;
-}
-
-.principal-background {
-    background-color:  #3399FF;
-
-}
-
-.textwhite {
-    color:white !important;
-}
-
-.m-padding {
-    padding: 25px 25px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
 #login-wrapp {
     background: #0067B1;
@@ -84,14 +116,9 @@ input,a {
     margin-bottom: 35px;
 }
 
-.no-top{
-    margin-top:0px !important;
-}
 
-.center-horizontal {
-    display: block;
-    margin:auto;
-}
+
+
 
 /*.manilla {
     -moz-transform: rotate(0deg) translateX(0px) translateY(0px);
@@ -148,9 +175,6 @@ input,a {
     transform: rotate(-90deg) translateX(0px) ;
 
 }
-.right-content {
-    
-}
 
 .right-content > * {
     float:right;
@@ -160,9 +184,7 @@ input,a {
   margin-top: 20px;
 }
 
-.clear-float {
-  clear:both;
-}
+
 .door {
 
     -webkit-transform-style: preserve-3d;
@@ -199,9 +221,6 @@ input,a {
     transition: all 1s;
 }
 
-.underline {
-    text-decoration: underline !important;
-}
 
 .btn-animate {
     border-radius: 50%; background:none;border-style: none;

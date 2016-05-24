@@ -9,12 +9,12 @@
 		var vm = this;
 		constructor();
 
-		function constructor(){
+		function constructor() {
 			vm.title = "Hogar";
 			console.log('Home');
 		}
 
-		
-		
+
+
 	}
 })();
