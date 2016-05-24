@@ -9,13 +9,13 @@
 		var vm = this;
 		constructor();
 
-		function constructor(){
+		function constructor() {
 			vm.title = "Hogar";
 			vm.icon_home = "img/logo.png"
 			console.log('Home');
 		}
 
-		
-		
+
+
 	}
 })();

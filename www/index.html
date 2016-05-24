@@ -11,15 +11,19 @@
 
     <div ng-app="lilotech">
 
-      <ion-pane ui-view>
-      <!-- Aqui se cargan los templates (HTML) que defines en app.routes.js -->
-      </ion-pane>
+        <ion-pane ui-view>
+        <!-- Aqui se cargan los templates (HTML) que defines en app.routes.js -->
+        </ion-pane>
       
     </div>
-
+    
+    <!--Librerias-->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
     <script src="lib/angular-resource/angular-resource.min.js"></script>
+    <script src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
+
+    <!--Modulos,configuraciones, enrutadores-->
     <script src="source/app.module.js"></script>
     <script src="source/app.config.js"></script>
     <script src="source/app.run.js"></script>
@@ -28,6 +32,5 @@
     
     <script src="source/components/login/loginController.js"></script>
     <script src="source/components/home/homeController.js"></script>
-
   </body>
 </html>

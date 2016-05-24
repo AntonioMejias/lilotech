@@ -2,18 +2,17 @@
 
 'use strict';
 
-angular.module('lilotech', ['ionic', 'ngResource', 'LocalStorageModule'])
+angular.module('lilotech')
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider
     .state('login', {
         url: '/login',
         templateUrl: 'source/components/login/loginView.html',
         controller : 'LoginController as login'
-
     })
 
     .state('home', {
