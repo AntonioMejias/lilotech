@@ -1,0 +1,28 @@
+<ion-content>
+	<ion-view view-title="Login">
+		<ion-content class="ion-content-login">
+			<div class="content-login">
+				<form class="form-login" novalidate>
+					<div align="center">
+						<img class="logo" ng-src="img/iconoapp.png">
+						<h2 class="logo-text">lilotech</h2>
+						<input class="input-login" type="text" ng-model="login.username" placeholder="E-mail">
+						<div class="divider-15"></div>
+						<input class="input-login" type="password" ng-model="login.password" placeholder="Contraseña">
+					</div>
+					<div class="row-login" align="right">
+						<div>
+							<img ng-click="login.onClickLogin()" class="manilla" ng-src="img/manilla.png">
+						</div>
+						<div>
+							<img class="register" ng-src="img/registrarse.png">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div align="center">
+				<label class="label-muted"><u>¿Ha olvidado su contraseña?</u></label>
+			</div>
+		</ion-content>
+	</ion-view>
+</ion-content>

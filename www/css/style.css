@@ -235,8 +235,10 @@ input,a {
 }
 
 /*---- Home ----*/
-.bar_header{
-    height: 70px !important;
+
+.bar-header{
+    background: none;
+    background-color: white !important;
 }
 
 .nav-bar{
@@ -254,10 +256,10 @@ input,a {
     width: 36px;
 }
 
-
-.bar-header {
+.bar-header-lg {
     height: 70px !important;
 }
+
 
 .bar-header > h1 {
     font-size: 25pt !important;
@@ -271,7 +273,7 @@ input,a {
     display: list-item !important;
 }
 
-.item-home {
+.item-list {
     width: 100%;
     height: 100px;
     background: #0067B1;
@@ -283,7 +285,7 @@ input,a {
     margin-top: 5px;
 }
 
-.item-home > span {
+.item-list > span {
     display: table;
     margin: 0 auto;
     color: white;
@@ -298,6 +300,106 @@ input,a {
 .col-33{
     display: inline-table !important;
 }
+
+
+/*---- Login responsive ----*/
+label {
+    color: #ffffff;
+}
+
+.label-muted {
+    color: whitesmoke;
+    font-size: 16px !important;
+}
+
+.content-login {
+    background-color: #0067B1;
+    height: 98%;
+    border-radius : 50px;
+}
+
+.ion-content-login {
+    padding: 20px;
+}
+
+.form-login {
+    text-align: center;
+}
+
+.logo {
+    margin-top: 30px;
+    width: 35%;
+}
+
+.manilla {
+    width: 42%;
+}
+
+.register {
+    width: 20%;
+}
+
+.logo-text {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.divider-15 {
+    height: 15px;
+}
+
+.input-login {
+    text-align: center;
+    width: 90%;
+    height: 41px !important;
+    border-radius: 20px;
+    font-size: 25px !important;
+}
+
+.row-login {
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+/*---- Pantalla principal ----*/
+.bar-white {
+    border-bottom : white;
+}
+
+.bar-subheader {
+    height: 35px !important;
+    background: none;
+    background-color: white;
+    overflow-x: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.bar-subheader::-webkit-scrollbar {
+    height: 0px;
+}
+
+.bar-footer-detail {
+    background : none;
+    background-color: #0067B1;
+}
+
+.subitem{
+    height: 20px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 20px;
+    font-size: 14pt;
+    margin-right: 15px;
+}
+
+.subitem.ng-binding.activate {
+    background-color: #3399ff;
+    color: white;
+}
+
+
 
 
 

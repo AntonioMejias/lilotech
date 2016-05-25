@@ -5,14 +5,20 @@ angular
     .module('lilotech')
     .controller("BaseController", BaseController);
 
-BaseController.$inject = [];
+BaseController.$inject = ['SubItems'];
 
-function BaseController() {
+function BaseController(SubItems) {
 
     var vm = this;
     constructor();
 
     function constructor(){
+    	if(SubItems === null){
+    		vm.classHeader = "bar-header-lg";
+    	}else{
+    		vm.elements = SubItems;
+    	}
+
     	console.log("base");
     }
 }

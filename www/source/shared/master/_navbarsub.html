@@ -3,3 +3,8 @@
 	<h1 class="title">Hogar</h1>
 	<img src="img/martillo.png" class="img_head_right button button-clear">
 </div>
+<div class="bar bar-subheader" ng-if="!base.classHeader">
+	<div ng-repeat="element in base.elements track by $index" class="subitem" ng-class="element.class" ng-if="element.label !== ''">
+		{{element.label}}
+	</div>
+</div>

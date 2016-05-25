@@ -3,11 +3,11 @@
 
 angular
 	.module('lilotech')
-    .service("LoginService", LoginService);
+    .service("LoginService_2", LoginService_2);
 
-LoginService.$inject = ['ApiService', '$q'];
+LoginService_2.$inject = ['ApiService', '$q'];
 
-function LoginService(ApiService, $q) {
+function LoginService_2(ApiService, $q) {
 	var urlBase = "/api/status/";
 	var vm = this;
 
