@@ -1,21 +1,22 @@
-(function() {
-	angular.module('lilotech')
-		.controller('HomeController', HomeController);
+/* global */
+'use strict';
 
-	HomeController.$inject = [];
+angular
+    .module('lilotech')
+    .controller("HomeController", HomeController);
 
-	function HomeController() {
+HomeController.$inject = ['MockService'];
 
-		var vm = this;
-		constructor();
+function HomeController(MockService) {
 
-		function constructor() {
-			vm.title = "Hogar";
-			vm.icon_home = "img/logo.png"
-			console.log('Home');
-		}
+    var vm = this;
+    constructor();
 
+    function constructor(){
+    	console.log("home");
 
+        /*---Mock---*/
 
-	}
-})();
+        vm.elements = MockService.elements;
+    }
+}

@@ -9,17 +9,28 @@ angular.module('lilotech')
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider
-    .state('login', {
+    .state('index', {
         url: '/login',
-        templateUrl: 'source/components/login/loginView.html',
-        controller : 'LoginController as login'
+        views : {
+            "login": {
+                templateUrl: "source/components/login/loginView.html",
+                controller : "LoginController as login"
+            }
+        }
     })
 
     .state('home', {
         url: '/home',
-        templateUrl: 'source/components/home/homeView.html',
-        controller : 'HomeController as home'
-
+        views : {
+            "navbar": {
+                templateUrl: "source/shared/master/_navbar.html",
+                controller : "BaseController as base"
+            },
+            "home": {
+                templateUrl: "source/components/home/homeView.html",
+                controller : "HomeController as home"
+            }
+        }
     });
 
 

@@ -1,12 +1,16 @@
-<ion-header-bar class="bar-light bar-header">
-	<img src="img/icono_app_Android.png" class="img_head_left button button-clear">
-	<h1 class="nav-bar title">{{home.title}}</h1>
-	<img src="img/martillo.png" class="img_head_right button button-clear">
-</ion-header-bar>
-
-<ion-content class="principal-background">
-	<ion-view  >
-		
+<ion-content>
+	<ion-view view-title="Home">
+		<ion-content>
+			<div class="content-home">
+				<div class="row">
+					<div class="col col-33" ng-repeat="element in home.elements track by $index">
+						<div ng-class="element.class" class="item-home" ng-if="element.label !== ''">
+							<span>{{element.label}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-content>
 	</ion-view>
 </ion-content>
 
