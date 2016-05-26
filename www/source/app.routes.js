@@ -13,8 +13,8 @@ angular.module('lilotech')
         url: '/login',
         views : {
             "login": {
-                templateUrl: "source/components/login/loginView_2.html",
-                controller : "LoginController_2 as login"
+                templateUrl: "source/components/login/loginView.html",
+                controller : "LoginController as login"
             }
         }
     })
