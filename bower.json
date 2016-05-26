@@ -10,8 +10,6 @@
   "dependencies": {
     "angular-resource": "^1.5.5",
     "angular-local-storage": "^0.2.7",
-    "angular-jwt": "^0.0.9",
-    "cordova": "^3.4.0",
-    "ngCordova": "^0.1.26-alpha"
+    "angular-jwt": "^0.0.9"
   }
 }
