@@ -5,9 +5,9 @@ angular
     .module('lilotech')
     .controller("LoginController_2", LoginController_2);
 
-LoginController_2.$inject = ['LoginService_2', '$state' ,'$scope'];
+LoginController_2.$inject = ['LoginService_2', '$state' ,'$scope' ,'ionicToast'];
 
-function LoginController_2(LoginService_2, $state, $scope) {
+function LoginController_2(LoginService_2, $state, $scope ,ionicToast) {
 
     var vm = this;
     constructor();
@@ -39,6 +39,8 @@ function LoginController_2(LoginService_2, $state, $scope) {
                 }, function(error) {
                     console.log("The toast was not shown due to " + error);
                 });*/
+
+                ionicToast.show(response.message, 'bottom', false, 2000);
 
                 console.log(response.message);
             }) 
