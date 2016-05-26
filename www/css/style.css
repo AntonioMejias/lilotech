@@ -9,6 +9,14 @@
 
 /**** GLOBAL RULES ****/
 
+.scroll {
+    /*transform: none !important;*/
+    height: 100%;
+}
+
+.scroll-content {
+    background-color: #3399ff;
+}
 
 p {
     font-size:26px !important;
@@ -120,36 +128,30 @@ input,a {
 
 
 
-/*.manilla {
+.manill {
     -moz-transform: rotate(0deg) translateX(0px) translateY(0px);
     -webkit-transform: rotate(0deg) translateX(0px) translateY(0px);
     -o-transform: rotate(0deg) translateX(0px) translateY(0px);
     -ms-transform: rotate(0deg) translateX(0px) translateY(0px);
     transform: rotate(0deg) translateX(0px) translateY(0px);
-    -webkit-transition: all .6s ease-out;
-    -moz-transition: all .6s ease-out;
-    -ms-transition: all .6s ease-out;
-    -o-transition: all .6s ease-out;
-    transition: all .6s ease-out;
 
-}*/
-.manilla:active {
+
+}
+.manillaAnimate {
     -moz-transform: rotate(-25deg) translateX(0px) translateY(25px);
     -webkit-transform: rotate(-25deg) translateX(0px) translateY(25px);
     -o-transform: rotate(-25deg) translateX(0px) translateY(25px);
     -ms-transform: rotate(-25deg) translateX(0px) translateY(25px);
-    transform: rotate(-25deg) translateX(0px) translateY(18px);
+    transform: rotate(-30deg) translateX(-8%) translateY(25%);
     transition: .6s ease-out;
-}
+} /*-8 20*/
 
-.cerraduraAnimate {
+.manillaAnimateS {
     -moz-transform: rotate3d(0, 0, 1, -38deg)  translate3d(0px,16px,0px);
     -webkit-transform: rotate3d(0, 0, 1, -38deg)  translate3d(0px,16px,0px);
-    transform: rotate3d(0, 0, 1, -38deg)  translate3d(0px,16px,0px);
-    transition: .6s ease-out;
-} /*   -moz-transform: rotate3d( 0, -25deg, 0, 0) translateX(0px) translateY(25px);
-    -webkit-transform: rotate3d( 0, -25deg, 0, 0) translateX(0px) translateY(25px);
-    -o-transform: rotate3d( 0, -25deg, 0, 0) translateX(0px) translateY(25px);*/
+    transform: rotate3d(0, 0, 1, -38deg)  translate3d(-24px,76px,0px);
+    transition: .6s ease-out;/*rotate(-25deg) translateX(0px) translateY(18px);*/
+} /* transform: rotate3d(0, 0, 1, -38deg)  translate3d(-20px,74px,0px);* */
 
 .cerradura {
 
@@ -226,9 +228,11 @@ input,a {
     border-radius: 50%; background:none;border-style: none;
 }
 
-/* Home */
-.bar_header{
-    height: 70px !important;
+/*---- Home ----*/
+
+.bar-header{
+    background: none;
+    background-color: white !important;
 }
 
 .nav-bar{
@@ -245,3 +249,157 @@ input,a {
     height: 36px;
     width: 36px;
 }
+
+.bar-header-lg {
+    height: 70px !important;
+}
+
+
+.bar-header > h1 {
+    font-size: 25pt !important;
+}
+
+.content-home {
+    padding-top: 70px;
+}
+
+.row {
+    display: list-item !important;
+}
+
+.item-list {
+    width: 100%;
+    height: 100px;
+    background: #0067B1;
+    border-radius: 10px;
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.item-list > span {
+    display: table;
+    margin: 0 auto;
+    color: white;
+    font-size: 18pt;
+}
+
+.activate, .activate > span {
+    background-color: white;
+    color: #3399ff;
+}
+
+.col-33{
+    display: inline-table !important;
+}
+
+
+/*---- Login responsive ----*/
+label {
+    color: #ffffff;
+}
+
+/*.scroll{
+  min-height: 100% !important;
+  height: 100% !important;
+}*/
+
+.label-muted {
+    color: whitesmoke;
+    font-size: 16px !important;
+}
+
+.content-login {
+    background-color: #0067B1;
+    /*height: 98%;*/
+    border-radius : 50px;
+    padding-bottom: 15%;
+}
+
+.ion-content-login {
+    padding: 30px 20px;
+}
+
+.form-login {
+    text-align: center;
+}
+
+.logo {
+    margin-top: 30px;
+    width: 35%;
+}
+
+.manilla {
+    width: 42%;
+}
+
+.register {
+    width: 20%;
+}
+
+.logo-text {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.divider-15 {
+    height: 15px;
+}
+
+.input-login {
+    text-align: center;
+    width: 90%;
+    height: 41px !important;
+    border-radius: 20px;
+    font-size: 25px !important;
+}
+
+.row-login {
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+/*---- Pantalla principal ----*/
+.bar-white {
+    border-bottom : white;
+}
+
+.bar-subheader {
+    height: 35px !important;
+    background: none;
+    background-color: white;
+    overflow-x: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.bar-subheader::-webkit-scrollbar {
+    height: 0px;
+}
+
+.bar-footer-detail {
+    background : none;
+    background-color: #0067B1;
+}
+
+.subitem{
+    height: 20px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 20px;
+    font-size: 14pt;
+    margin-right: 15px;
+}
+
+.subitem.ng-binding.activate {
+    background-color: #3399ff;
+    color: white;
+}
+
+
+
+
+

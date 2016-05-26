@@ -10,11 +10,14 @@
   <body>
 
     <div ng-app="lilotech">
+      <div ui-view="login">
+      </div>
 
-        <ion-pane ui-view>
-        <!-- Aqui se cargan los templates (HTML) que defines en app.routes.js -->
-        </ion-pane>
-      
+      <div ui-view="navbar">
+      </div>
+
+      <div ui-view="home">
+      </div>
     </div>
     
     <!--Librerias-->
@@ -29,9 +32,17 @@
     <script src="source/app.run.js"></script>
     <script src="source/app.routes.js"></script>
     <script src="cordova.js"></script>
+
+    <!-- Services -->
+    <script src="source/shared/generics/ApiService.js"></script>
+    <script src="source/shared/generics/MockService.js"></script>
+    <script src="source/components/login/LoginService_2.js"></script>
     
-    <!--Controladores-->
-    <script src="source/components/login/loginController.js"></script>
-    <script src="source/components/home/homeController.js"></script>
+    <!-- Controllers -->
+    <!--<script src="source/components/login/LoginController.js"></script>-->
+    <script src="source/components/login/LoginController_2.js"></script>
+    <script src="source/shared/master/BaseController.js"></script>
+    <script src="source/components/home/HomeController.js"></script>
+    <script src="source/components/detail/DetailController.js"></script>
   </body>
 </html>
