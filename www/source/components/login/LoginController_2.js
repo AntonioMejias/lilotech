@@ -14,7 +14,7 @@ function LoginController_2(LoginService_2, $state, $scope) {
 
     function constructor() {
         var manillaElement;
-
+        vm.user = {};
         vm.animate = {
             "cerradura": '',
             "puerta": '',
@@ -28,7 +28,20 @@ function LoginController_2(LoginService_2, $state, $scope) {
 
     function _onClickLogin() {
 
-        vm.animate.manilla = 'manillaAnimate';   
+         LoginService_2
+            .validateEmptyInput(vm.user)
+            .then(function(success) { //success
+                console.log("campos bien");
+                vm.animate.manilla = 'manillaAnimate';
+            }, function(response) { // error
+                /*$cordovaToast.show(response.message, 'short', 'bottom').then(function(success) {
+                    console.log("The toast was shown");
+                }, function(error) {
+                    console.log("The toast was not shown due to " + error);
+                });*/
+
+                console.log(response.message);
+            }) 
     }
 
     function _login(){
@@ -44,15 +57,36 @@ function LoginController_2(LoginService_2, $state, $scope) {
                 console.log(error);
             }
         );
+
+        /* var request = {
+                url: 'https://device.lilotechnology.com/api/login',
+                data: vm.user,
+                config: {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                    }
+                }
+            }
+
+            //self.animate.manilla = 'cerraduraAnimate';
+
+            $http
+                .post(request.url, request.data, request.config)
+                .then(function(response) { // success callback
+                    console.log(response);
+                    },
+                    function(response) { // failure callback
+
+                    })*/
     }
 
     function _animateTheDoor(argument) {
         console.log("termino la transition");
         $scope.$apply(function() {
-            //vm.animate.puerta = "openingDoor";
+            vm.animate.puerta = "openingDoor";
             setTimeout(function() {
                 $scope.$apply(function() {
-                    //_login()
+                    _login()
                 });
             }, 750)
         });
