@@ -4,7 +4,7 @@
 			<div class="content-home">
 				<div class="row">
 					<div class="col col-33" ng-repeat="element in home.elements track by $index">
-						<div ng-class="element.class" class="item-list" ng-if="element.label !== ''">
+						<div ng-class="element.class" class="item-list" ng-if="element.label !== ''" ng-click="home.onClickDetail()">
 							<span>{{element.label}}</span>
 						</div>
 					</div>

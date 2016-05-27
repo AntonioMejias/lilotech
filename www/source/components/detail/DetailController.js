@@ -16,5 +16,8 @@ function DetailController() {
     	
     	/*---Mock---*/
         vm.elements = MockService.elements;
+
     }
+
+
 }
