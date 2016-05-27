@@ -5,10 +5,9 @@ angular
     .module('lilotech')
     .controller("BaseController", BaseController);
 
-BaseController.$inject = ['SubItems', '$state'];
+BaseController.$inject = ['SubItems' ,'$state'];
 
-function BaseController(SubItems, $state) {
-
+function BaseController(SubItems,$state) {
     var vm = this;
     constructor();
 
