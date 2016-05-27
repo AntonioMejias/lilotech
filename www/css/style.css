@@ -1,1 +1,465 @@
-/* Empty. Add your own CSS if you like */
+@font-face {
+  font-family: "eurofurence";
+  src:url("./fuentes/eurof35.ttf");
+}
+
+* {
+    font-family: "eurofurence" !important;
+}
+
+/**** GLOBAL RULES ****/
+
+.scroll {
+    /*transform: none !important;*/
+    height: 100%;
+}
+
+.scroll-content {
+    background-color: #3399ff;
+    height: 100% !important;
+}
+
+p {
+    font-size:26px !important;
+}
+
+input {
+    padding: 0px !important;
+}
+
+input,a {
+    font-size:18px !important;
+    color:black !important;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.principal-background {
+    background-color:  #3399FF;
+
+}
+
+.textwhite {
+    color:white !important;
+}
+
+.m-padding {
+    padding: 25px 25px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.no-top{
+    margin-top:0px !important;
+}
+
+.center-horizontal {
+    display: block;
+    margin:auto;
+}
+
+
+.clear-float {
+  clear:both;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
+
+
+/***************************/
+
+/**** Ionic Class (OVERRIDE) ****/
+    .list.list-inset {
+    background: none;
+}
+
+
+.list.list-inset .item.item-input {
+    border-radius: 50px;
+    margin-bottom: 15px;
+    padding: 0px 6px 0px 8px !important;
+}
+
+*::-webkit-input-placeholder {
+  color: #525252 !important;
+  text-align: center;
+}
+*:-moz-placeholder {
+  color: #525252 !important;
+  text-align: center;
+}
+*:-ms-input-placeholder { /* IE10+ */
+  color: #525252 !important;
+  text-align: center;
+}
+
+/**************************/
+
+
+/****** Login Rules ******/
+
+
+
+#login-wrapp {
+    background: #006699;
+    /*height: 100%;*/
+    height:510px;
+    border-radius: 60px;
+    padding: 22px 20px 40px 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+}
+
+#header-logo > :first-child {
+    margin-bottom: 15px;
+}
+
+#header-logo  {
+    margin-bottom: 35px;
+}
+
+
+
+
+
+.manill {
+    -moz-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -webkit-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -o-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -ms-transform: rotate(0deg) translateX(0px) translateY(0px);
+    transform: rotate(0deg) translateX(0px) translateY(0px);
+
+
+}
+.manillaAnimate {
+    -moz-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -webkit-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -o-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -ms-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    transform: rotate(-30deg) translateX(-8%) translateY(25%);
+    transition: .6s ease-out;
+} /*-8 20*/
+
+.manillaAnimateS {
+    -moz-transform: rotate3d(0, 0, 1, -38deg)  translate3d(0px,16px,0px);
+    -webkit-transform: rotate3d(0, 0, 1, -38deg)  translate3d(0px,16px,0px);
+    transform: rotate3d(0, 0, 1, -38deg)  translate3d(-24px,76px,0px);
+    transition: .6s ease-out;/*rotate(-25deg) translateX(0px) translateY(18px);*/
+} /* transform: rotate3d(0, 0, 1, -38deg)  translate3d(-20px,74px,0px);* */
+
+.cerradura {
+
+    -moz-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -webkit-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -o-transform: rotate(0deg) translateX(0px) translateY(0px);
+    -ms-transform: rotate(0deg) translateX(0px) translateY(0px);
+    transform: rotate(0deg) translateX(0px) translateY(0px);
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -ms-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+
+}
+
+.cerradura:active {
+
+    -moz-transform: rotate(-90deg) translateX(0px)  ;
+    -webkit-transform: rotate(-90deg) translateX(0px) ;
+    -o-transform: rotate(-90deg) translateX(0px) ;
+    -ms-transform: rotate(-90deg) translateX(0px) ;
+    transform: rotate(-90deg) translateX(0px) ;
+
+}
+
+.right-content > * {
+    float:right;
+}
+
+#button-login-wrapper {
+  margin-top: 20px;
+}
+
+
+.door {
+
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 550px;
+    -webkit-transform-origin: 0 50%;
+    -webkit-transition: all 1s;
+    -moz-transform-style: preserve-3d;
+    -moz-perspective: 550px;
+    -moz-transform-origin: 0 50%;
+    -moz-transition: all 1s;
+    -o-transform-style: preserve-3d;
+    -o-perspective: 550px;
+    -o-transform-origin: 0 50%;
+    -o-transition: all 1s;
+    transform-style: preserve-3d;
+    perspective: 550px;
+    transform-origin: 0 50%;
+    transition: all 1s;
+ 
+}
+
+/*.door:hover{
+    -webkit-transform: scale(0.05,1) skew(0deg,20deg);
+    -moz-transform: scale(0.05,1) skew(0deg,20deg);
+    -o-transform: scale(0.05,1) skew(0deg,20deg);
+    transform: scale(0.05,1) skew(0deg,20deg);
+}*/
+
+.openingDoor{
+    -webkit-transform: scale(0.05,1) skew(0deg,20deg);
+    -moz-transform: scale(0.05,1) skew(0deg,20deg);
+    -o-transform: scale(0.05,1) skew(0deg,20deg);
+    transform: scale(0.05,1) skew(0deg,20deg);
+    transition: all 1s;
+}
+
+
+.btn-animate {
+    border-radius: 50%; background:none;border-style: none;
+}
+
+/*---- Home ----*/
+
+.bar-header{
+    background: none;
+    background-color: white !important;
+}
+
+.nav-bar{
+    color:black;
+    font-size: 30px !important;
+}
+
+.img_head_left{
+    height: 32px;
+    width: 35px;
+}
+
+.img_head_right{
+    height: 36px;
+    width: 36px;
+}
+
+.bar-header-lg {
+    height: 70px !important;
+}
+
+
+.bar-header > h1 {
+    font-size: 25pt !important;
+}
+
+.content-home {
+    padding-top: 70px;
+}
+
+.row {
+    display: list-item !important;
+}
+
+.item-list {
+    width: 100%;
+    height: 100px;
+    background: #006699;
+    border-radius: 10px;
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.item-list > span {
+    display: table;
+    margin: 0 auto;
+    color: white;
+    font-size: 18pt;
+}
+
+.activate, .activate > span {
+    background-color: white;
+    color: #3399ff;
+}
+
+.col-33{
+    display: inline-table !important;
+}
+
+
+/*---- Login responsive ----*/
+label {
+    color: #ffffff;
+}
+
+/*.scroll{
+  min-height: 100% !important;
+  height: 100% !important;
+}*/
+
+.label-muted {
+    color: whitesmoke;
+    font-size: 16px !important;
+}
+
+.content-login {
+    background-color: #0067B1;
+    /*height: 98%;*/
+    border-radius : 50px;
+    padding-bottom: 15%;
+}
+
+.ion-content-login {
+    padding: 30px 20px;
+}
+
+.form-login {
+    text-align: center;
+}
+
+.logo {
+    margin-top: 30px;
+    width: 35%;
+}
+
+.manilla {
+    width: 37%;
+}
+
+.register {
+    width: 16%;
+}
+
+.logo-text {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.divider-15 {
+    height: 15px;
+}
+
+.input-login {
+    text-align: center;
+    width: 90%;
+    height: 41px !important;
+    border-radius: 20px;
+    font-size: 25px !important;
+}
+
+.row-login {
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+
+.loading {
+    height: 100% !important;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+   
+
+}
+.spinner svg {
+  width: 30%;
+  height: 30%;
+
+}
+
+.content-spinner{
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+}
+
+.center-spinner{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/*---- Pantalla principal ----*/
+.bar-white {
+    border-bottom : white;
+}
+
+.bar-subheader {
+    height: 35px !important;
+    background: none;
+    background-color: white;
+    overflow-x: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.bar-subheader::-webkit-scrollbar {
+    height: 0px;
+}
+
+.bar-footer-detail {
+    background : none;
+    background-color: #0067B1;
+}
+
+.subitem{
+    height: 20px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 20px;
+    font-size: 14pt;
+    margin-right: 15px;
+}
+
+.subitem.ng-binding.activate {
+    background-color: #3399ff;
+    color: white;
+}
+
+
+@media screen and (min-height: 475px) {
+    .manilla {width: 32%;}
+
+    .register {width: 14%;}
+
+    .logo {margin-top: 10px;width: 30%;}
+    .logo-text {margin-bottom: 20px;}
+}
+
+@media screen and (min-height: 555px) {
+    .manilla {width: 39%;}
+
+    .register {width: 17%;}
+
+    .logo {margin-top: 30px;width: 38%;}
+
+    .content-login {padding-bottom: 20%;}
+}
+
+@media screen and (min-height: 665px) {
+    .manilla {width: 41%;}
+
+    .register {width: 19%;}
+
+    .logo {margin-top: 35px;width: 40%;}
+
+    .content-login {padding-bottom: 29%;}
+}
+
+
+
+
