@@ -16,7 +16,7 @@
 
 .scroll-content {
     background-color: #3399ff;
-    height: 100% !important;
+    /*height: 100% !important;*/
 }
 
 p {
@@ -129,7 +129,7 @@ input,a {
 
 
 
-.manill {
+.manilla {
     -moz-transform: rotate(0deg) translateX(0px) translateY(0px);
     -webkit-transform: rotate(0deg) translateX(0px) translateY(0px);
     -o-transform: rotate(0deg) translateX(0px) translateY(0px);
@@ -139,12 +139,19 @@ input,a {
 
 }
 .manillaAnimate {
-    -moz-transform: rotate(-25deg) translateX(0px) translateY(25px);
-    -webkit-transform: rotate(-25deg) translateX(0px) translateY(25px);
-    -o-transform: rotate(-25deg) translateX(0px) translateY(25px);
-    -ms-transform: rotate(-25deg) translateX(0px) translateY(25px);
+    -moz-transform: rotate(-25deg) translateX(-8%) translateY(25%);
+    -webkit-transform: rotate(-25deg) translateX(-8%) translateY(25%);
+    -o-transform: rotate(-25deg) translateX(-8%) translateY(25%);
+    -ms-transform: rotate(-25deg) translateX(-8%) translateY(25%);
     transform: rotate(-30deg) translateX(-8%) translateY(25%);
     transition: .6s ease-out;
+    /*-moz-transform: rotate(-25deg) translateX(-8%) translateY(25%);
+    -webkit-transform: rotate(-25deg) translateX(-8%) translateY(25%);
+    -o-transform: rotate(-25deg) translateX(-8%) translateY(25%);
+    -ms-transform: rotate(-25deg) translateX(-8%) translateY(25%);
+    transform: rotate(-30deg) ;
+    transform-origin: 90% 90% 0;
+    transition: .6s ease-out;*/
 } /*-8 20*/
 
 .manillaAnimateS {
@@ -440,14 +447,14 @@ label {
     .logo-text {margin-bottom: 20px;}
 }
 
-@media screen and (min-height: 555px) {
+@media screen and (min-height: 555px)  {
     .manilla {width: 39%;}
 
     .register {width: 17%;}
 
     .logo {margin-top: 30px;width: 38%;}
 
-    .content-login {padding-bottom: 20%;}
+    .content-login {padding-bottom: 18%;}
 }
 
 @media screen and (min-height: 665px) {
