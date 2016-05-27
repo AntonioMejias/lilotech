@@ -5,9 +5,9 @@ angular
     .module('lilotech')
     .controller("LoginController_2", LoginController_2);
 
-LoginController_2.$inject = ['LoginService_2', '$state', '$scope', 'ionicToast'];
+LoginController_2.$inject = ['LoginService_2', '$state', '$scope', 'ionicToast', '$http'];
 
-function LoginController_2(LoginService_2, $state, $scope, ionicToast) {
+function LoginController_2(LoginService_2, $state, $scope, ionicToast, $http) {
 
     var vm = this;
     constructor();
@@ -41,51 +41,59 @@ function LoginController_2(LoginService_2, $state, $scope, ionicToast) {
                     console.log("The toast was not shown due to " + error);
                 });*/
 
-                ionicToast.show(response.message, 'bottom', false, 2000);
+                ionicToast.show(response.message, 'bottom', false, 1500);
 
                 console.log(response.message);
             })
     }
 
     function _login() {
-        LoginService_2.login({
-            "username": vm.username,
-            "password": vm.password
-        }).then(
-            function(success) {
-                vm.cargando = true;
-                setTimeout(function() {
-                    $scope.$apply(function() {
+        vm.cargando = true;
+        LoginService_2
+            .login(vm.user)
+            .then(function(response) {
+                console.log("existe una respuesta");
+                    if(!response.data.result) {
+                        vm.cargando = false;
+                        vm.animate.puerta = "";
+                        vm.animate.manilla = "";
+                        ionicToast.show('Email o Contraseña incorrecta', 'bottom', false, 2000);
+                    } else {
                         $state.go('home');
-                    });
-                }, 2000)
-                
-            },
-            function(error) {
-                console.log(error);
-            }
-        );
-
-        /* var request = {
-                url: 'https://device.lilotechnology.com/api/login',
-                data: vm.user,
-                config: {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                     }
+                    
+                },
+                function(error) {
+                    console.log(error);
+                }
+            );
+
+        /*var request = {
+            url: 'https://device.lilotechnology.com/api/login',
+            data: vm.user,
+            config: {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                transformRequest: function(obj) {
+                    var str = [];
+                    for (var p in obj)
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    return str.join("&");
                 }
             }
+        }
 
-            //self.animate.manilla = 'cerraduraAnimate';
+        //self.animate.manilla = 'cerraduraAnimate';
 
-            $http
-                .post(request.url, request.data, request.config)
-                .then(function(response) { // success callback
+        $http
+            .post(request.url, request.data, request.config)
+            .then(function(response) { // success callback
                     console.log(response);
-                    },
-                    function(response) { // failure callback
+                },
+                function(response) { // failure callback
 
-                    })*/
+                })*/
     }
 
     function _animateTheDoor(argument) {
