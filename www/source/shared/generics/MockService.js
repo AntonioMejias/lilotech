@@ -44,5 +44,23 @@ function MockService(ApiService, $q) {
             class : ""
         }
     ];
+
+    //Elementos de detalles
+    vm.elementsD = [
+        {
+            label : "Enchufe 1",
+            image: "img/enchufe_1.png"
+        },
+        {
+            label : "Bombilla",
+            image: "img/bombilla_.png"
+        },
+        {
+            label : "Enchufe",
+            image: "img/enchufe.png"
+        }
+    ];
+
+
 	
 }

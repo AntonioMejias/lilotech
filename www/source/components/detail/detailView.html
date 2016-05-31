@@ -1,15 +1,18 @@
 <ion-content>
 	<ion-view view-title="Detail">
 		<ion-content>
+
 			<div class="content-detail">
 				<div class="row">
-					<div class="col col-33" ng-repeat="element in detail.elements track by $index">
-						<div ng-class="element.class" class="item-list" ng-if="element.label !== ''">
-							<span>{{element.label}}</span>
+					<div class="col col-33" ng-repeat="element in detail.elementsD track by $index">
+						<div ng-class="element.image">
+							<img class="item-list-details" src="{{element.image}}">
+							<span class="label-details" ng-class="element.label">{{element.label}}</span>
 						</div>
 					</div>
 				</div>
 			</div>
+
 
 			<div class="bar bar-footer bar-footer-detail">
 		      	<a class="tab-item">
