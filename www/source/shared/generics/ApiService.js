@@ -5,9 +5,9 @@ angular
     .module('lilotech')
     .service("ApiService", ApiService);
 
-ApiService.$inject = ['$http', '$q'];
+ApiService.$inject = ['$resource', '$q'];
 
-function ApiService($http, $q) {
+function ApiService($resource, $q) {
     var vm = this;
 
     function httpCall(method, url, data) {

@@ -13,8 +13,7 @@ function LoginService_2(AuthService, $q) {
 
 	/*Metodo para login*/
 	vm.login = function(data) {
-		console.log('estoy aqui');
-		return AuthService.Authenticate(data);
+		return AuthService.Authenticate(data); 
 	}
 
 	/*Metodo para validar si los campos de un usario estan vacios || Devuelve una promesa */

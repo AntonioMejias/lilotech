@@ -18,6 +18,7 @@
 			console.log('vamos a hacerlo');
 			return $http({
 				method: 'POST',
+				skipAuthorization: true,
 				headers: Headers,
 				url: 'https://device.lilotechnology.com/api/login',
 				transformRequest: _transformRequest,

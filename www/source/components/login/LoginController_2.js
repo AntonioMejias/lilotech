@@ -5,22 +5,26 @@ angular
     .module('lilotech')
     .controller("LoginController_2", LoginController_2);
 
-LoginController_2.$inject = ['LoginService_2', '$state', '$scope', 'ionicToast', '$http'];
+LoginController_2.$inject = ['LoginService_2', 'ApiService2','UtilService', '$state', '$scope', 'ionicToast', '$http', 'localStorageService'];
 
-function LoginController_2(LoginService_2, $state, $scope, ionicToast, $http) {
+function LoginController_2(LoginService_2, ApiService2,UtilService, $state, $scope, ionicToast, $http, localStorageService) {
 
     var vm = this;
     constructor();
 
     function constructor() {
         var manillaElement;
+        var toast;
         vm.cargando = false;
         vm.user = {};
         vm.animate = {
-            "cerradura": '',
-            "puerta": '',
-            "manilla": ''
-        }
+                "cerradura": '',
+                "puerta": '',
+                "manilla": ''
+            }
+            /*toast = document.querySelector('.ionic_toast');
+            toast.setAttribute("id", "custom_toast");*/
+
 
         manillaElement = document.getElementById('manillaButton');
         manillaElement.addEventListener("transitionend", _animateTheDoor, true);
@@ -35,65 +39,70 @@ function LoginController_2(LoginService_2, $state, $scope, ionicToast, $http) {
                 console.log("campos bien");
                 vm.animate.manilla = 'manillaAnimate';
             }, function(response) { // error
-                /*$cordovaToast.show(response.message, 'short', 'bottom').then(function(success) {
-                    console.log("The toast was shown");
-                }, function(error) {
-                    console.log("The toast was not shown due to " + error);
-                });*/
 
                 ionicToast.show(response.message, 'bottom', false, 1500);
+
 
                 console.log(response.message);
             })
     }
 
     function _login() {
+
+        var jwtToken;
+
         vm.cargando = true;
         LoginService_2
             .login(vm.user)
             .then(function(response) {
-                console.log("existe una respuesta");
-                    if(!response.data.result) {
+                    var data;
+                    console.log("existe una respuesta");
+                    if (!response.data.result) {
                         vm.cargando = false;
                         vm.animate.puerta = "";
                         vm.animate.manilla = "";
                         ionicToast.show('Email o Contraseña incorrecta', 'bottom', false, 2000);
                     } else {
-                        $state.go('home');
+                        console.log(response);
+
+                        localStorageService.set(jwtToken, response.data.token);
+                        ApiService2
+                            .getArrayRequest('/api/getdevices',false)
+                            .then(function (response) {
+                                var device = response[0].Device;
+                                var data = {token:device.token}
+                                ApiService2.changeApiPath('device',device);
+                                //ApiService2.changeApiPath();
+                                //console.log(response);
+                                return  ApiService2.postRequest('/api/logintoken',data,false,'urlencoded');
+                                
+                            })
+                            .then (function (response) {
+                                localStorageService.set(jwtToken, response.token);
+                                console.log(response.token);
+                                return  ApiService2.getArrayRequest('/api/getrooms',false);
+                                
+                            })
+                            .then(function(response) {
+                                console.log(response);
+
+                                response.forEach(function (element) {
+                                    console.log("Mi nombre es: " +element.Room.name);
+                                })
+                                return  ApiService2.getRequest('/api/getroom/:room_id',{room_id:1});
+                            })
+                            .then(function(response) {
+                                console.log(response);
+                            })
+
+                        //$state.go('home');
                     }
-                    
+
                 },
                 function(error) {
                     console.log(error);
                 }
             );
-
-        /*var request = {
-            url: 'https://device.lilotechnology.com/api/login',
-            data: vm.user,
-            config: {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                transformRequest: function(obj) {
-                    var str = [];
-                    for (var p in obj)
-                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-                    return str.join("&");
-                }
-            }
-        }
-
-        //self.animate.manilla = 'cerraduraAnimate';
-
-        $http
-            .post(request.url, request.data, request.config)
-            .then(function(response) { // success callback
-                    console.log(response);
-                },
-                function(response) { // failure callback
-
-                })*/
     }
 
     function _animateTheDoor(argument) {

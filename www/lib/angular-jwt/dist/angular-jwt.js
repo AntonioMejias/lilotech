@@ -16,8 +16,8 @@ angular.module('angular-jwt',
   .provider('jwtInterceptor', function() {
 
     this.urlParam = null;
-    this.authHeader = 'Authorization';
-    this.authPrefix = 'Bearer ';
+    this.authHeader = 'AuthToken';
+    this.authPrefix = '';
     this.tokenGetter = function() {
       return null;
     }
