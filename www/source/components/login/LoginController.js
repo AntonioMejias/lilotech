@@ -3,11 +3,11 @@
 
 angular
     .module('lilotech')
-    .controller("LoginController_2", LoginController_2);
+    .controller("LoginController", LoginController);
 
-LoginController_2.$inject = ['LoginService_2', 'ApiService2','UtilService', '$state', '$scope', 'ionicToast', '$http', 'localStorageService'];
+LoginController.$inject = ['LoginService', 'ApiService','UtilService', '$state', '$scope', 'ionicToast', '$http', 'localStorageService'];
 
-function LoginController_2(LoginService_2, ApiService2,UtilService, $state, $scope, ionicToast, $http, localStorageService) {
+function LoginController(LoginService, ApiService,UtilService, $state, $scope, ionicToast, $http, localStorageService) {
 
     var vm = this;
     constructor();
@@ -33,7 +33,7 @@ function LoginController_2(LoginService_2, ApiService2,UtilService, $state, $sco
 
     function _onClickLogin() {
 
-        LoginService_2
+        LoginService
             .validateEmptyInput(vm.user)
             .then(function(success) { //success
                 console.log("campos bien");
@@ -52,7 +52,7 @@ function LoginController_2(LoginService_2, ApiService2,UtilService, $state, $sco
         var jwtToken;
 
         vm.cargando = true;
-        LoginService_2
+        LoginService
             .login(vm.user)
             .then(function(response) {
                     var data;
@@ -66,37 +66,51 @@ function LoginController_2(LoginService_2, ApiService2,UtilService, $state, $sco
                         console.log(response);
 
                         localStorageService.set(jwtToken, response.data.token);
-                        ApiService2
+                        ApiService
                             .getArrayRequest('/api/getdevices',false)
                             .then(function (response) {
                                 var device = response[0].Device;
                                 var data = {token:device.token}
-                                ApiService2.changeApiPath('device',device);
-                                //ApiService2.changeApiPath();
+                                ApiService.changeApiPath('device',device);
+                                //ApiService.changeApiPath();
                                 //console.log(response);
-                                return  ApiService2.postRequest('/api/logintoken',data,false,'urlencoded');
+                                return  ApiService.postRequest('/api/logintoken',data,false,'urlencoded');
                                 
                             })
                             .then (function (response) {
                                 localStorageService.set(jwtToken, response.token);
+                                //UtilService.prueba = "estoy comunicando mis controladores";
+                                $state.go('detail');
                                 console.log(response.token);
-                                return  ApiService2.getArrayRequest('/api/getrooms',false);
+                                //return  ApiService.getArrayRequest('/api/getrooms',false);
                                 
                             })
-                            .then(function(response) {
+
+
+                        //$state.go('detail');
+                    }
+
+                    /*ApiService
+                        .getArrayRequest('/api/getrooms',false)
+                        .then(function(response) {
+                                    console.log(response);
+
+                                    response.forEach(function (element) {
+                                        console.log("Mi nombre es: " +element.Room.name);
+                                    })
+                                    //return  ApiService.getRequest('/api/getroom/:room_id',{room_id:1});
+                                })
+                        .then(function(response) {
                                 console.log(response);
 
                                 response.forEach(function (element) {
                                     console.log("Mi nombre es: " +element.Room.name);
                                 })
-                                return  ApiService2.getRequest('/api/getroom/:room_id',{room_id:1});
+                                return  ApiService.getRequest('/api/getroom/:room_id',{room_id:1});
                             })
-                            .then(function(response) {
+                        .then(function(response) {
                                 console.log(response);
-                            })
-
-                        //$state.go('home');
-                    }
+                            })*/
 
                 },
                 function(error) {

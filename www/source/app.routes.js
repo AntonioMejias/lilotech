@@ -13,20 +13,11 @@ angular.module('lilotech')
         url: '/login',
         views : {
             "login": {
-                templateUrl: "source/components/login/loginView_2.html",
-                controller : "LoginController_2 as login"
-            }
-        }
-    })
-    /*.state('index', {
-        url: '/login',
-        views : {
-            "login": {
                 templateUrl: "source/components/login/loginView.html",
                 controller : "LoginController as login"
             }
         }
-    })*/
+    })
 
     .state('home', {
         url: '/home',

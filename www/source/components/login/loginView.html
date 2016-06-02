@@ -1,39 +1,36 @@
-<ion-view >
-  <ion-content  class="padding m-padding principal-background no-scroll">
-    <section ng-cloak id="login-wrapp" ng-class ="login.animate.puerta" class="padding door" >
-       
-        <div id="login">
-            <section id="header-logo">
-                <img ng-src="{{login.imgPath.iconapp}}" class ="center-horizontal" alt="" width="83" height="80">
-                <center><p class="textwhite">lilotech</p></center>
-                
-            </section>
-            
-            <form >
-                <div class="list list-inset">
-                    <label class="item item-input">
-                        <input type="text" placeholder="E-mail" ng-model="login.user.email">
-                    </label>
-                    <label class="item item-input">
-                        <input type="password" placeholder="Contraseña" ng-model="login.user.password">
-                    </label>
-                </div>
-            </form>
-
-           <div id="button-login-wrapper">
-                <div class="right-content">
-                     <button id="manillaButton" ng-class="login.animate.manilla" ng-click="login.login()"class=" btn-animate" style="padding-right: 8px; "> <img ng-src="{{login.imgPath.manilla}}"  alt="" width="100" height="60"></button>
-                </div>
-          
-                <div class="right-content clear-float" >
-                     <button ng-class="" class="cerradura btn-animate" style="padding-right: 2px!important;"> <img ng-src="{{login.imgPath.cerradura}}"  alt="" width="53" height="46"></button>
-                </div>
-           </div>
+<ion-content>
+    <ion-view view-title="Login">
+        <ion-content class="ion-content-login m-padding  no-scroll">
+        <div ng-show="!login.cargando">
+            <div ng-class ="login.animate.puerta" class="content-login door" >
+                <form class="form-login" novalidate>
+                    <div align="center">
+                        <img class="logo" src="img/iconoapp.png">
+                        <h2 class="logo-text">lilotech</h2>
+                        <input class="input-login" type="text" ng-model="login.user.email" placeholder="E-mail">
+                        <div class="divider-15"></div>
+                        <input class="input-login" type="password" ng-model="login.user.password" placeholder="Contraseña">
+                    </div>
+                    <div class="row-login" align="right">
+                        <div >
+                            <img id="manillaButton"  ng-click="login.onClickLogin()"  ng-class="login.animate.manilla" class="manilla" src="img/manilla.png">
+                        </div>
+                          <div class="divider-15"></div>
+                        <div>
+                            <img class="register" src="img/registrarse.png">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div align="center">
+                <label class="label-muted"><u>¿Ha olvidado su contraseña?</u></label>
+            </div>
         </div>
-        
-    </section>
-    <section>
-        <a href="#/registro" class=" underline center-horizontal no-top button textwhite button-dark button-clear button-block ">¿Ha olvidado su contraseña? </a>
-    </section>
-  </ion-content>
-</ion-view>
+        <div ng-show="login.cargando" class="loading">
+            <div class="content-spinner">
+                <ion-spinner   icon="ripple" class="center-spinner spinner-light"></ion-spinner>       
+            </div>          
+        </div>
+        </ion-content>
+    </ion-view>
+</ion-content>

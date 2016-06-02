@@ -5,9 +5,9 @@ angular
     .module('lilotech')
     .controller("DetailController", DetailController);
 
-DetailController.$inject = [];
+DetailController.$inject = ['MockService','UtilService'];
 
-function DetailController() {
+function DetailController(MockService,UtilService) {
 
     var vm = this;
     constructor();
@@ -16,5 +16,10 @@ function DetailController() {
     	
     	/*---Mock---*/
         vm.elements = MockService.elements;
+
+        vm.elementsD = MockService.elementsD;
+        //vm.message = UtilService.prueba;
     }
+
+
 }
