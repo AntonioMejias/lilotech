@@ -5,7 +5,7 @@ angular
     .module('lilotech')
     .controller("LoginController", LoginController);
 
-LoginController.$inject = ['LoginService','UtilService', '$state', '$scope', 'ionicToast', 'localStorageService', 'DeviceService'];
+LoginController.$inject = ['LoginService', 'UtilService', '$state', '$scope', 'ionicToast', 'localStorageService', 'DeviceService'];
 
 function LoginController(LoginService, UtilService, $state, $scope, ionicToast, localStorageService, DeviceService) {
 
@@ -29,7 +29,7 @@ function LoginController(LoginService, UtilService, $state, $scope, ionicToast, 
 
 
         //Only Debug Mode
-        vm.user.email = "lilo@lilotechnology.com";
+        vm.user.email =  "lilo@lilotechnology.com";//"antonio@hostienda.com"
         vm.user.password = "asdasd";
 
     }
@@ -52,7 +52,7 @@ function LoginController(LoginService, UtilService, $state, $scope, ionicToast, 
 
     function _login() {
 
-        
+
 
         vm.cargando = true;
         LoginService
@@ -61,21 +61,23 @@ function LoginController(LoginService, UtilService, $state, $scope, ionicToast, 
                     var data;
                     console.log("existe una respuesta");
                     if (!response.data.result) {
-                        vm.cargando = false;
-                        vm.animate.puerta = "";
-                        vm.animate.manilla = "";
+                        _cleanAnimation();
                         ionicToast.show('Email o Contraseña incorrecta', 'bottom', false, 2000);
                     } else {
 
                         localStorageService.set("jwtToken", response.data.token);
 
-                        DeviceService.getDeviceToken().then (
-                            function (response) {
-                                localStorageService.set("jwtToken", response.token);                                
-                                $state.go('home');
+                        DeviceService.getDeviceToken().then(
+                            function(response) {
+                                localStorageService.set("jwtToken", response.token);
+                                $state.go('principal');
                             },
-                            function(error){
-                                console.log(error);
+                            function(error) {
+                                if (error.NotDeviceException) {
+                                    _cleanAnimation();
+                                    ionicToast.show('Su cuenta no posee ningún dispositivo asociado', 'bottom', false, 2000);
+                                } else
+                                    console.log(error);
                             }
                         );
 
@@ -88,8 +90,13 @@ function LoginController(LoginService, UtilService, $state, $scope, ionicToast, 
             );
     }
 
+    function _cleanAnimation() {
+        vm.cargando = false;
+        vm.animate.puerta = "";
+        vm.animate.manilla = "";
+    }
+
     function _animateTheDoor(argument) {
-        console.log("termino la transition");
         $scope.$apply(function() {
             vm.animate.puerta = "openingDoor";
             setTimeout(function() {
