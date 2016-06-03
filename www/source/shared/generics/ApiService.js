@@ -9,14 +9,19 @@
 
     function ApiService($resource, $q, UtilService) {
         var vm = this;
-        vm.baseUrl = 'https://device.lilotechnology.com';
-        //var baseUrl = 'https://device.lilotechnology.com';
+
+        vm.postRequest = postRequest;
+        vm.putRequest = putRequest;
+        vm.getRequest = getRequest;
+        vm.getArrayRequest = getArrayRequest;
+        vm.deleteRequest = deleteRequest;
+
 
         function httpCall(method, url, params, data, header, isArray) {
 
             params = (params == false ? null : params); //Verifica si existen parametros para inlcuir al URL
-            url = vm.baseUrl + url;
-            //console.log(vm.baseUrl + url);
+
+
             if (header && header == 'urlencoded') {
                 header = {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -38,17 +43,6 @@
 
 
         }
-
-        function _changeApiPath(status, device) {
-            vm.baseUrl = (status == 'device' ? "http://" + device.ip + ":" + device.port : 'https://device.lilotechnology.com')
-        }
-
-        vm.changeApiPath = _changeApiPath;
-        vm.postRequest = postRequest;
-        vm.putRequest = putRequest;
-        vm.getRequest = getRequest;
-        vm.getArrayRequest = getArrayRequest;
-        vm.deleteRequest = deleteRequest;
 
         function postRequest(url, data, params, header) {
             return httpCall("POST", url, params, data, header, false);

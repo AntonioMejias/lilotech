@@ -1,19 +1,19 @@
 angular.module('lilotech')
 
+.constant('BaseUrl', "https://device.lilotechnology.com")
+
 .config(function(localStorageServiceProvider) {
-		localStorageServiceProvider
-			.setPrefix('lilotech');
-	})
+	localStorageServiceProvider
+		.setPrefix('lilotech');
+})
 .config(['$httpProvider', 'jwtInterceptorProvider',
 	function Config($httpProvider, jwtInterceptorProvider) {
 
-			jwtInterceptorProvider.tokenGetter = ['localStorageService',function(localStorageService) {
-				var jwtToken;
-				//console.log("obteniendo el token" + localStorageService.get(jwtToken))
-				return localStorageService.get(jwtToken);
-			}];
+		jwtInterceptorProvider.tokenGetter = ['localStorageService',function(localStorageService) {
+			//console.log("obteniendo el token" + localStorageService.get(jwtToken))
+			return localStorageService.get("jwtToken");
+		}];
 
-			$httpProvider.interceptors.push('jwtInterceptor');
-		}
-	])
-	
+		$httpProvider.interceptors.push('jwtInterceptor');
+	}
+]);

@@ -5,20 +5,36 @@ angular
     .module('lilotech')
     .controller("DetailController", DetailController);
 
-DetailController.$inject = ['MockService','UtilService'];
+DetailController.$inject = ['RoomService', '$stateParams', 'MockService'];
 
-function DetailController(MockService,UtilService) {
+function DetailController(RoomService, $stateParams, MockService) {
 
     var vm = this;
     constructor();
 
     function constructor(){
-    	
-    	/*---Mock---*/
-        vm.elements = MockService.elements;
+        var idRoom = $stateParams.idRoom;
+
+        if(idRoom){
+            //Existe un idRoom
+            RoomService.getRoom(idRoom).then(
+                function(response){
+                    vm.Client = response.Client;
+                    vm.Room = response.Room;
+
+                    console.log("Client", vm.Client);
+                    console.log("Room", vm.Room);
+                }, 
+                function(error){
+                    console.log(error);
+                }
+            );
+        }else{
+            //idRoom === undefined
+        }
 
         vm.elementsD = MockService.elementsD;
-        //vm.message = UtilService.prueba;
+
     }
 
 

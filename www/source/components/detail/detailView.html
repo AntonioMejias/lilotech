@@ -6,7 +6,7 @@
 				<div class="row">
 					<div class="col col-33" ng-repeat="element in detail.elementsD track by $index">
 						<div ng-class="element.image">
-							<img class="item-list-details" src="{{element.image}}">
+							<img class="item-list-details" ng-src="{{element.image}}">
 							<span class="label-details" ng-class="element.label">{{element.label}}</span>
 						</div>
 					</div>

@@ -26,7 +26,7 @@ angular.module('lilotech')
                 templateUrl: "source/shared/master/_navbar.html",
                 controller : "BaseController as base",
                 resolve : {
-                    SubItems: function () {
+                    Rooms: function () {
                         return null;
                     }
                 }
@@ -39,19 +39,21 @@ angular.module('lilotech')
     })
 
     .state('detail', {
-        url: '/detail',
+        url: '/detail/:idRoom',
         views : {
             "navbar": {
                 templateUrl: "source/shared/master/_navbarsub.html",
                 controller : "BaseController as base",
+                params: {'idRoom': null},
                 resolve : {
-                    SubItems: function (MockService) {
-                        return MockService.elements;
+                    Rooms: function (RoomService) {
+                        return RoomService.getRooms();
                     }
                 }
             },
             "home": {
                 templateUrl: "source/components/detail/detailView.html",
+                params: {'idRoom': null},
                 controller : "DetailController as detail"
             }
         }

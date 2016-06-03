@@ -5,9 +5,9 @@
 		.module('lilotech')
 		.service('AuthService', AuthService);
 
-	AuthService.$inject = ['$http'];
+	AuthService.$inject = ['$http', 'BaseUrl'];
 
-	function AuthService($http) {
+	function AuthService($http, BaseUrl) {
 		var vm = this;
 		vm.Authenticate = Authenticate;
 
@@ -20,7 +20,7 @@
 				method: 'POST',
 				skipAuthorization: true,
 				headers: Headers,
-				url: 'https://device.lilotechnology.com/api/login',
+				url: BaseUrl + '/api/login',
 				transformRequest: _transformRequest,
 				data: data,
 

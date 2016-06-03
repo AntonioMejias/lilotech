@@ -5,9 +5,9 @@ angular
     .module('lilotech')
     .controller("HomeController", HomeController);
 
-HomeController.$inject = ['MockService','$state'];
+HomeController.$inject = ['MockService','$state', 'RoomService'];
 
-function HomeController(MockService, $state) {
+function HomeController(MockService, $state, RoomService) {
 
     var vm = this;
     constructor();
@@ -15,13 +15,13 @@ function HomeController(MockService, $state) {
     function constructor(){
     	console.log("home");
         vm.onClickDetail = _onClickDetail;
-        /*---Mock---*/
-        vm.elements = MockService.elements;
+
+        RoomService.getRooms().then(function(response) {
+            vm.rooms = response;
+        });
     }
 
-    function _onClickDetail(){
-    	
-    	$state.go('detail');
-       
+    function _onClickDetail(idRoom){
+    	$state.go('detail', {"idRoom" : idRoom});
     }
 }

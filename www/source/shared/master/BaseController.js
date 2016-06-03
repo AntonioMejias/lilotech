@@ -5,19 +5,20 @@ angular
     .module('lilotech')
     .controller("BaseController", BaseController);
 
-BaseController.$inject = ['SubItems' ,'$state'];
+BaseController.$inject = ['Rooms' ,'$state', '$stateParams'];
 
-function BaseController(SubItems,$state) {
+function BaseController(Rooms, $state, $stateParams) {
     var vm = this;
     constructor();
 
     function constructor(){
         vm.onClickBack = _onClickBack;
-        
-    	if(SubItems === null){
+        vm.idRoomSelected = $stateParams.idRoom;
+                
+    	if(Rooms === null){
     		vm.classHeader = "bar-header-lg";
     	}else{
-    		vm.elements = SubItems;
+            vm.rooms = Rooms;
     	}
         
     	console.log("base");
