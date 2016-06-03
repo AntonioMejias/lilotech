@@ -38,8 +38,8 @@ angular.module('lilotech')
         }
     })
 
-    .state('detail', {
-        url: '/detail/:idRoom',
+    .state('principal', {
+        url: '/principal/:idRoom',
         views : {
             "navbar": {
                 templateUrl: "source/shared/master/_navbarsub.html",
@@ -52,9 +52,9 @@ angular.module('lilotech')
                 }
             },
             "home": {
-                templateUrl: "source/components/detail/detailView.html",
+                templateUrl: "source/components/principal/principalView.html",
                 params: {'idRoom': null},
-                controller : "DetailController as detail"
+                controller : "PrincipalController as principal"
             }
         }
     })

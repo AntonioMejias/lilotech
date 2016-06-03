@@ -3,11 +3,11 @@
 
 angular
     .module('lilotech')
-    .controller("DetailController", DetailController);
+    .controller("PrincipalController", PrincipalController);
 
-DetailController.$inject = ['RoomService', '$stateParams', 'MockService'];
+PrincipalController.$inject = ['RoomService', '$stateParams', 'MockService'];
 
-function DetailController(RoomService, $stateParams, MockService) {
+function PrincipalController(RoomService, $stateParams, MockService) {
 
     var vm = this;
     constructor();

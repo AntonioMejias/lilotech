@@ -22,6 +22,6 @@ function HomeController(MockService, $state, RoomService) {
     }
 
     function _onClickDetail(idRoom){
-    	$state.go('detail', {"idRoom" : idRoom});
+    	$state.go('principal', {"idRoom" : idRoom});
     }
 }

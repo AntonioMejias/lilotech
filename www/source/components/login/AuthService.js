@@ -15,7 +15,7 @@
 			var Headers = {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			};
-			console.log('vamos a hacerlo');
+			//console.log('vamos a hacerlo');
 			return $http({
 				method: 'POST',
 				skipAuthorization: true,

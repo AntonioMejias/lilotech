@@ -1,20 +1,20 @@
 <ion-content>
-	<ion-view view-title="Detail">
+	<ion-view view-title="Principal">
 		<ion-content>
 
-			<div class="content-detail">
+			<div class="content-principal">
 				<div class="row">
-					<div class="col col-33" ng-repeat="element in detail.elementsD track by $index">
+					<div class="col col-33" ng-repeat="element in principal.elementsD track by $index">
 						<div ng-class="element.image">
-							<img class="item-list-details" ng-src="{{element.image}}">
-							<span class="label-details" ng-class="element.label">{{element.label}}</span>
+							<img class="item-list-principal" ng-src="{{element.image}}">
+							<span class="label-principal" ng-class="element.label">{{element.label}}</span>
 						</div>
 					</div>
 				</div>
 			</div>
 
 
-			<div class="bar bar-footer bar-footer-detail">
+			<div class="bar bar-footer bar-footer-principal">
 		      	<a class="tab-item">
 		        <img ng-src="img/sensors/palmadas.png" class="icon">
 		      	</a>
@@ -34,7 +34,6 @@
 		        <img ng-src="img/sensors/humo.png" class="icon">
 		      </a>
 			</div>
-			{{detail.message}}
 		</ion-content>
 	</ion-view>
 </ion-content>
