@@ -18,10 +18,12 @@ function HomeController(MockService, $state, RoomService) {
 
         RoomService.getRooms().then(function(response) {
             vm.rooms = response;
+            console.log("cargado los cuarts");
         });
     }
 
     function _onClickDetail(idRoom){
+        console.log("probando");
     	$state.go('principal', {"idRoom" : idRoom});
     }
 }

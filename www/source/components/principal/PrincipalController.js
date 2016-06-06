@@ -17,7 +17,7 @@ function PrincipalController(RoomService, $stateParams, MockService) {
 
         if(idRoom){
             //Existe un idRoom
-            RoomService.getRoom(idRoom).then(
+           /* RoomService.getRoom(idRoom).then(
                 function(response){
                     vm.Client = response.Client;
                     vm.Room = response.Room;
@@ -28,7 +28,7 @@ function PrincipalController(RoomService, $stateParams, MockService) {
                 function(error){
                     console.log(error);
                 }
-            );
+            );*/
         }else{
             //idRoom === undefined
         }

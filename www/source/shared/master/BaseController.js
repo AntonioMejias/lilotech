@@ -19,6 +19,7 @@ function BaseController(Rooms,localStorageService, $state, $stateParams, $ionicP
             vm.classHeader = "bar-header-lg";
             vm.onClickModal = _onClickModal;
         } else {
+            //console.log(Rooms);
             vm.rooms = Rooms;
         }
     }

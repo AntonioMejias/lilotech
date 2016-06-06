@@ -513,8 +513,8 @@ label {
     width: 100%;
   
     border-radius: 10px;
-    display: -webkit-flex; /* Safari */
-    -webkit-align-items: center; /* Safari 7.0+ */
+    display: -webkit-flex; 
+    -webkit-align-items: center; 
     display: flex;
     align-items: center;
     margin-top: 5px;

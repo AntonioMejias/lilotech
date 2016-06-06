@@ -46,8 +46,16 @@ angular.module('lilotech')
                 controller : "BaseController as base",
                 params: {'idRoom': null},
                 resolve : {
-                    Rooms: function (RoomService) {
-                        return RoomService.getRooms();
+                    Rooms: function (RoomService,localStorageService) {
+                        if (localStorageService.get("rooms")) {
+                            console.log("retornando desde el localStorageService");
+                            return localStorageService.get("rooms");
+                        }
+
+                        localStorageService.set("rooms",RoomService.getRooms());
+
+                        //console.log("cargando por primera vez");
+                        return localStorageService.get("rooms");
                     }
                 }
             },
