@@ -1,36 +1,38 @@
 <ion-content>
     <ion-view view-title="Login">
         <ion-content class="ion-content-login m-padding  no-scroll">
-        <div ng-show="!login.cargando">
-            <div ng-class ="login.animate.puerta" class="content-login door" >
-                <form class="form-login" novalidate>
-                    <div align="center">
-                        <img class="logo" ng-src="img/iconoapp.png">
-                        <h2 class="logo-text">lilotech</h2>
-                        <input class="input-login" type="text" ng-model="login.user.email" placeholder="E-mail">
-                        <div class="divider-15"></div>
-                        <input class="input-login" type="password" ng-model="login.user.password" placeholder="Contraseña">
-                    </div>
-                    <div class="row-login" align="right">
-                        <div >
-                            <img id="manillaButton"  ng-click="login.onClickLogin()"  ng-class="login.animate.manilla" class="manilla" ng-src="img/manilla.png">
+            <div ng-show="!login.cargando">
+                <div ng-class ="login.animate.puerta" class="content-login door" >
+                    <form class="form-login" novalidate>
+                        <div align="center">
+                            <img class="logo" ng-src="img/iconoapp.png">
+                            <h2 class="logo-text">lilotech</h2>
+                            <input class="input-login" type="text" ng-model="login.user.email" placeholder="E-mail">
+                            <div class="divider-15"></div>
+                            <input class="input-login" type="password" ng-model="login.user.password" placeholder="Contraseña">
                         </div>
-                          <div class="divider-15"></div>
-                        <div>
-                            <img class="register" ng-src="img/registrarse.png">
+                        <div class="row-login" align="right">
+                            <div >
+                                <img id="manillaButton"  ng-click="login.onClickLogin()"  ng-class="login.animate.manilla" class="manilla" ng-src="img/manilla.png">
+                            </div>
+                              <div class="divider-15"></div>
+                            <div>
+                                <img class="register" ng-src="img/registrarse.png">
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+                <div align="center" class="m-top">
+                   <a class=" textwhite underline">¿Ha olvidado su contraseña?<a>
+                </div>
             </div>
-            <div align="center" class="m-top">
-               <a class=" textwhite underline">¿Ha olvidado su contraseña?<a>
+
+            <div ng-show="login.cargando" class="loading">
+                <div class="content-spinner">
+                    <ion-spinner icon="ripple" class="center-spinner spinner-light"></ion-spinner>
+                </div>
             </div>
-        </div>
-        <div ng-show="login.cargando" class="loading">
-            <div class="content-spinner">
-                <ion-spinner icon="ripple" class="center-spinner spinner-light"></ion-spinner>       
-            </div>          
-        </div>
+              
         </ion-content>
     </ion-view>
 </ion-content>

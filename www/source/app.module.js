@@ -2,4 +2,4 @@
 
 'use strict';
 
-angular.module('lilotech', ['ionic', 'ngResource', 'LocalStorageModule', 'angular-jwt','ionic-toast'])
+angular.module('lilotech', ['ionic', 'ngAnimate','ngResource', 'LocalStorageModule', 'angular-jwt','ionic-toast'])

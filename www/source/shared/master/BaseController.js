@@ -5,15 +5,16 @@ angular
     .module('lilotech')
     .controller("BaseController", BaseController);
 
-BaseController.$inject = ['Rooms','localStorageService', '$state', '$stateParams', '$ionicPopup'];
+BaseController.$inject = ['Rooms', 'localStorageService', 'UtilService', '$state', '$stateParams', '$ionicPopup'];
 
-function BaseController(Rooms,localStorageService, $state, $stateParams, $ionicPopup) {
+function BaseController(Rooms, localStorageService, UtilService, $state, $stateParams, $ionicPopup) {
     var vm = this;
     constructor();
 
     function constructor() {
         vm.onClickBack = _onClickBack;
         vm.idRoomSelected = $stateParams.idRoom;
+        vm.obj = UtilService.utilObject;
 
         if (Rooms === null) {
             vm.classHeader = "bar-header-lg";
@@ -41,7 +42,7 @@ function BaseController(Rooms,localStorageService, $state, $stateParams, $ionicP
         confirmPopup
             .then(function(answer) {
                 if (answer) {
-                    localStorageService.set("jwtToken",'');
+                    localStorageService.set("jwtToken", '');
                     console.log(localStorageService.get("jwtToken"));
                     $state.go('index');
                 }

@@ -116,6 +116,30 @@ input,a,.text,.popup button {
     to   { opacity: 0; }
 }
 
+/*.ng-enter {
+  -webkit-transition: 1s;
+  transition: 1s;
+  
+  margin-left: 100%;
+}
+
+.ng-enter-active {
+  margin-left: 0;
+}*/
+
+.delay {
+    opacity: 1;
+}
+.delay.ng-enter {
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 0;
+}
+.delay.ng-enter-active {
+    opacity: 1;
+}
+
+
 
 
 

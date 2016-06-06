@@ -1,15 +1,27 @@
 <ion-content>
 	<ion-view view-title="Home">
 		<ion-content>
-			<div class="content-home">
+			<div ng-show ="!home.cargando" class="content-home">
 				<div class="row">
-					<div class="col col-33" ng-repeat="room in home.rooms track by $index">
+					<div class="col col-33 delay" ng-repeat="room in home.rooms track by $index">
 						<div class="item-list" ng-click="home.onClickDetail(room.Room.id)">
 							<span>{{room.Room.name}}</span>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<!--<button ng-click="home.aumentar()">
+				prueba
+			</button>
+
+			{{home.prueba}}-->
+
+			<div ng-show="home.cargando" class="loading">
+                <div class="content-spinner">
+                    <ion-spinner icon="ripple" class="center-spinner spinner-light"></ion-spinner>
+                </div>
+            </div>
 		</ion-content>
 	</ion-view>
 </ion-content>

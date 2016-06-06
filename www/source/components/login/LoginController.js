@@ -52,8 +52,6 @@ function LoginController(LoginService, UtilService, $state, $scope, ionicToast, 
 
     function _login() {
 
-
-
         vm.cargando = true;
         LoginService
             .login(vm.user)

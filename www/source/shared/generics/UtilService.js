@@ -11,7 +11,7 @@
 		var vm = this;
 
 		vm.jsonToUrlencoded = _jsonToUrlencoded;
-		vm.prueba;
+		vm.utilObject = {loading:false};
 		function _jsonToUrlencoded(obj) { //Codifica el JSON al formato x-www-form-urlencoded 
 			var str = [];
 			for (var p in obj)

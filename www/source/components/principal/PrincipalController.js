@@ -14,6 +14,7 @@ function PrincipalController(RoomService, $stateParams, MockService) {
 
     function constructor(){
         var idRoom = $stateParams.idRoom;
+        vm.prueba = 0;
 
         if(idRoom){
             //Existe un idRoom
@@ -34,8 +35,13 @@ function PrincipalController(RoomService, $stateParams, MockService) {
         }
 
         vm.elementsD = MockService.elementsD;
+        vm.aumentar = _aumentar;
 
+        
     }
 
+    function _aumentar (argument) {
+            vm.prueba++;
+    }
 
 }
