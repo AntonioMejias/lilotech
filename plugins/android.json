@@ -1,0 +1,22 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.lilotech586314"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.lilotech586314"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-webserver": {
+            "PACKAGE_NAME": "com.ionicframework.lilotech586314"
+        }
+    }
+}

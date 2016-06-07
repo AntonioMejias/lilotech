@@ -16,3 +16,17 @@ angular.module('lilotech')
 		}
 	});
 })
+.run(function($ImageCacheFactory){
+  $ImageCacheFactory.Cache([
+            "img/enchufe_1.png",
+            "img/bombilla_.png",
+            "img/enchufe.png"
+        ]).then(function(){
+            console.log("Images done loading!");
+        },function(failed){
+            console.log("An image filed: "+failed);
+        });
+})
+
+
+        

@@ -58,7 +58,7 @@ angular.module('lilotech')
                 },
                 resolve: {
                     Rooms: function(RoomService) {
-                        /*if (localStorageService.get("rooms")) { //para mejorar la velocidad al cargar los datos
+                        /*if (localStorageService.get("rooms")) {
                             console.log("retornando desde el localStorageService");
                             return localStorageService.get("rooms");
                         }
@@ -68,6 +68,7 @@ angular.module('lilotech')
 
                         return RoomService.getRooms();
                     }
+
                 }
             },
             "home": {

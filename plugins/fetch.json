@@ -1,0 +1,26 @@
+{
+    "ionic-plugin-keyboard": {
+        "source": {
+            "type": "registry",
+            "id": "ionic-plugin-keyboard"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-webserver": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-webserver"
+        },
+        "is_top_level": false,
+        "variables": {}
+    }
+}
