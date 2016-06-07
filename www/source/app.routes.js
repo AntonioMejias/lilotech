@@ -47,7 +47,7 @@ angular.module('lilotech')
                 params: {'idRoom': null},
                 resolve : {
                     Rooms: function (RoomService,localStorageService) {
-                        if (localStorageService.get("rooms")) {
+                        /*if (localStorageService.get("rooms")) {
                             console.log("retornando desde el localStorageService");
                             return localStorageService.get("rooms");
                         }
@@ -55,8 +55,10 @@ angular.module('lilotech')
                         localStorageService.set("rooms",RoomService.getRooms());
 
                         //console.log("cargando por primera vez");
-                        return localStorageService.get("rooms");
+                        return localStorageService.get("rooms");*/
+                        return RoomService.getRooms();
                     }
+
                 }
             },
             "home": {

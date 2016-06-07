@@ -7,7 +7,7 @@ angular
 
 PrincipalController.$inject = ['RoomService', '$stateParams', 'MockService'];
 
-function PrincipalController(RoomService, $stateParams, MockService) {
+function PrincipalController(RoomService, $stateParams, MockService, $ImageCacheFactory) {
 
     var vm = this;
     constructor();
