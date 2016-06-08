@@ -5,6 +5,6 @@
 </div>
 <div class="bar bar-subheader" ng-if="!base.classHeader">
 	<div ng-repeat="room in base.rooms track by $index" class="subitem" ng-class="(base.idRoomSelected === room.Room.id ? 'activate' : '')">
-		{{room.Room.name}}
+		{{room.Room.name | capitalize}}
 	</div>
 </div>
