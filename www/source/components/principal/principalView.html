@@ -5,7 +5,7 @@
 			<div ng-show="!principal.cargando" class="content-principal">
 				<div class="row">
 					<div class="col col-33 delay" ng-repeat="element in principal.applications track by $index">
-						<div ng-click="principal.toggleApp(element.cliend_id,elemnt.app_id)">
+						<div ng-click="principal.toggleApp(element)">
 							<img class="item-list-principal" ng-src="{{element.image}}">
 							<center><span class="label-principal" ng-class="element.label">{{element.label}}</span></center>
 						</div>

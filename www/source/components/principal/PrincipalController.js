@@ -5,9 +5,9 @@ angular
     .module('lilotech')
     .controller("PrincipalController", PrincipalController);
 
-PrincipalController.$inject = ['RoomService','ToggleService', '$stateParams', 'MockService'];
+PrincipalController.$inject = ['RoomService', 'ToggleService', '$stateParams', 'MockService'];
 
-function PrincipalController(RoomService,ToggleService, $stateParams, MockService) {
+function PrincipalController(RoomService, ToggleService, $stateParams, MockService) {
 
     var vm = this;
     constructor();
@@ -26,7 +26,7 @@ function PrincipalController(RoomService,ToggleService, $stateParams, MockServic
                         var ClientApp = response.Client[0].Clientapp;
                         vm.applications = _generateAppImage(ClientApp);
 
-                        console.log(vm.applications);
+                        console.log(response.Client[0].Clientapp);
                     },
                     function(error) {
                         console.log(error);
@@ -43,22 +43,23 @@ function PrincipalController(RoomService,ToggleService, $stateParams, MockServic
 
     }
 
-    function _toggleApp(client_id,app_id) {
+    function _toggleApp(element) {
 
-        /*if (element.status == "0"){
-            element.image = element.image.replace("0.png","1.png");
-            element.status = "1";
-        } else{
-            element.image = element.image.replace("1.png","0.png");
-            element.status = "0";
-        }*/
+
 
         //element.label = "hola mundo";
 
         ToggleService
-            .toggleApp(client_id,app_id)
-            .then(function (response) {
+            .toggleApp(element.client_id, element.app_id)
+            .then(function(response) {
                 console.log(response);
+                if (element.status == "0") {
+                    element.image = element.image.replace("0.png", "1.png");
+                    element.status = "1";
+                } else {
+                    element.image = element.image.replace("1.png", "0.png");
+                    element.status = "0";
+                }
                 /*RoomService
                 .getRoom(1)
                 .then(
@@ -83,7 +84,7 @@ function PrincipalController(RoomService,ToggleService, $stateParams, MockServic
                 var application_image = {
                     label: app.name,
                     image: `img/applications/${app.image_id}-${app.status}.png`,
-                    status:app.status,
+                    status: app.status,
                     app_id: app.application_id,
                     client_id: app.client_id
                 }
