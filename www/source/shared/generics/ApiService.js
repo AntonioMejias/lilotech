@@ -32,7 +32,7 @@
                     'Content-Type': 'application/json'
                 }
             }
-
+            console.log("haciendo peticion");
             return $resource(url, params, {
                 'makeRequest': {
                     method: method,

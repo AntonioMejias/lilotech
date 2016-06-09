@@ -2,16 +2,22 @@
 	<ion-view view-title="Principal">
 		<ion-content>
 
-			<div class="content-principal">
+			<div ng-show="!principal.cargando" class="content-principal">
 				<div class="row">
-					<div class="col col-33" ng-repeat="element in principal.elementsD track by $index">
-						<div>
+					<div class="col col-33 delay" ng-repeat="element in principal.applications track by $index">
+						<div ng-click="principal.toggleApp(element.cliend_id,elemnt.app_id)">
 							<img class="item-list-principal" ng-src="{{element.image}}">
-							<span class="label-principal" ng-class="element.label">{{element.label}}</span>
+							<center><span class="label-principal" ng-class="element.label">{{element.label}}</span></center>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div ng-show="principal.cargando" class="loading">
+                <div class="content-spinner">
+                    <ion-spinner icon="ripple" class="center-spinner spinner-light"></ion-spinner>
+                </div>
+            </div>
 
 			<!--<button ng-click="principal.aumentar()">
 				prueba
@@ -45,3 +51,9 @@
 		</ion-content>
 	</ion-view>
 </ion-content>
+
+<script>
+	filter(function (argument) {
+		 /* body... */ 
+	})
+</script>
