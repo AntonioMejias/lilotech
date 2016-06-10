@@ -13,7 +13,7 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
     constructor();
 
     function constructor() {
-        idRoom = $stateParams.idRoom;
+        var idRoom = $stateParams.idRoom;
         /*var idRoom;
 
         if($stateParams.idRoom){
@@ -33,7 +33,9 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
                         var ClientApp = response.Client[0].Clientapp;
                         vm.applications = _generateAppImage(ClientApp);
 
-                        console.log(response.Client[0].Clientapp);
+                        console.log(vm.applications, {
+                            "idRoom": idRoom
+                        });
                     },
                     function(error) {
                         console.log(error);
@@ -42,6 +44,8 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
         } else {
             $state.go('home');
             //idRoom === undefined
+            console.log("No posee cuartos asociados a su dispositivo");
+
         }
 
         vm.elementsD = MockService.elementsD;
@@ -53,31 +57,19 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
 
     function _toggleApp(element) {
 
-
-
-        //element.label = "hola mundo";
+        if (element.status == "0") {
+            element.image = element.image.replace("0.png", "1.png");
+            element.status = "1";
+        } else {
+            element.image = element.image.replace("1.png", "0.png");
+            element.status = "0";
+        }
 
         ToggleService
             .toggleApp(element.client_id, element.app_id)
             .then(function(response) {
                 console.log(response);
-                if (element.status == "0") {
-                    element.image = element.image.replace("0.png", "1.png");
-                    element.status = "1";
-                } else {
-                    element.image = element.image.replace("1.png", "0.png");
-                    element.status = "0";
-                }
-                /*RoomService
-                .getRoom(1)
-                .then(
-                    function(response) {
-                        console.log(response.Client[0].Clientapp);
-                    },
-                    function(error) {
-                        console.log(error);
-                    }
-                );*/
+
             })
     }
 
@@ -93,7 +85,7 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
                     label: app.name,
                     image: `img/applications/${app.image_id}-${app.status}.png`,
                     status: app.status,
-                    app_id: app.application_id,
+                    app_id: app.id,
                     client_id: app.client_id
                 }
 

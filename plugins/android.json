@@ -15,6 +15,18 @@
         }
     },
     "dependent_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.lilotech586314"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.lilotech586314"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.lilotech586314"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.lilotech586314"
+        },
         "cordova-plugin-webserver": {
             "PACKAGE_NAME": "com.ionicframework.lilotech586314"
         }

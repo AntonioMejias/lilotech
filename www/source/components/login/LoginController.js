@@ -5,9 +5,9 @@ angular
     .module('lilotech')
     .controller("LoginController", LoginController);
 
-LoginController.$inject = ['LoginService', 'UtilService', '$state', '$scope', 'ionicToast', 'localStorageService', 'DeviceService'];
+LoginController.$inject = ['LoginService', 'RoomService', 'UtilService', '$state', '$scope', 'ionicToast', 'localStorageService', 'DeviceService'];
 
-function LoginController(LoginService, UtilService, $state, $scope, ionicToast, localStorageService, DeviceService) {
+function LoginController(LoginService, RoomService, UtilService, $state, $scope, ionicToast, localStorageService, DeviceService) {
 
     var vm = this;
     constructor();
@@ -29,7 +29,7 @@ function LoginController(LoginService, UtilService, $state, $scope, ionicToast, 
 
 
         //Only Debug Mode
-        vm.user.email =  "lilo@lilotechnology.com";//"antonio@hostienda.com"
+        vm.user.email = "lilo@lilotechnology.com"; //"antonio@hostienda.com"
         vm.user.password = "asdasd";
 
     }
@@ -68,7 +68,23 @@ function LoginController(LoginService, UtilService, $state, $scope, ionicToast, 
                         DeviceService.getDeviceToken().then(
                             function(response) {
                                 localStorageService.set("jwtToken", response.token);
-                                $state.go('principal');
+
+                                RoomService.getRooms().then(
+                                    function(rooms) {
+                                        if (rooms.length > 0) 
+                                            $state.go('principal', {
+                                                "idRoom": rooms[0].Room.id
+                                            })
+                                        else
+                                            $state.go('principal', {
+                                                "idRoom": false
+                                            });
+                                    },
+                                    function(error) {
+                                        _cleanAnimation();
+                                        console.log(error);
+                                    })
+
                             },
                             function(error) {
                                 if (error.NotDeviceException) {
@@ -83,6 +99,7 @@ function LoginController(LoginService, UtilService, $state, $scope, ionicToast, 
 
                 },
                 function(error) {
+                    _cleanAnimation();
                     console.log(error);
                 }
             );
