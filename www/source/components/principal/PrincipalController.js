@@ -5,15 +5,22 @@ angular
     .module('lilotech')
     .controller("PrincipalController", PrincipalController);
 
-PrincipalController.$inject = ['RoomService', 'ToggleService', '$stateParams', 'MockService'];
+PrincipalController.$inject = ['RoomService', 'ToggleService', '$stateParams', 'MockService', 'localStorageService', '$state'];
 
-function PrincipalController(RoomService, ToggleService, $stateParams, MockService) {
+function PrincipalController(RoomService, ToggleService, $stateParams, MockService, localStorageService, $state) {
 
     var vm = this;
     constructor();
 
     function constructor() {
-        var idRoom = $stateParams.idRoom;
+        idRoom = $stateParams.idRoom;
+        /*var idRoom;
+
+        if($stateParams.idRoom){
+           idRoom = $stateParams.idRoom;
+        } else{
+           idRoom = localStorageService.get('lastRoomSelected');
+        }*/
         vm.cargando;
 
         if (idRoom) {
@@ -33,6 +40,7 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
                     }
                 );
         } else {
+            $state.go('home');
             //idRoom === undefined
         }
 
