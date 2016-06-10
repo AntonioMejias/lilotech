@@ -14,9 +14,9 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
 
     function constructor() {
         var idRoom = $stateParams.idRoom;
+        vm.cargando = true;
 
-        if (idRoom) {
-            vm.cargando = true;
+        if (idRoom) {      
             RoomService
                 .getRoom(idRoom)
                 .then(

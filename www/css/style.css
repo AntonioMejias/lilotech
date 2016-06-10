@@ -139,6 +139,18 @@ input,a,.text,.popup button {
     opacity: 1;
 }
 
+.p {
+    opacity: 1;
+}
+.p.ng-enter {
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 0;
+}
+.p.ng-enter-active {
+    opacity: 1;
+}
+
 
 
 
