@@ -33,9 +33,7 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
                         var ClientApp = response.Client[0].Clientapp;
                         vm.applications = _generateAppImage(ClientApp);
 
-                        console.log(vm.applications, {
-                            "idRoom": idRoom
-                        });
+                        console.log(vm.applications);
                     },
                     function(error) {
                         console.log(error);
@@ -74,16 +72,16 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
     }
 
     function _generateAppImage(ClientApps) {
-        var filterAppId = ["1", "2"];
+        //var filterAppId = ["1", "2"];
 
         var applications = ClientApps
             .filter(function(app) {
-                return filterAppId.includes(app.application_id)
+                return (app.application_id == "1" || app.application_id == "2")
             })
             .map(function(app) {
                 var application_image = {
                     label: app.name,
-                    image: `img/applications/${app.image_id}-${app.status}.png`,
+                    image: 'img/applications/'+app.image_id+'-'+app.status+'.png',
                     status: app.status,
                     app_id: app.id,
                     client_id: app.client_id

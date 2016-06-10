@@ -9,7 +9,6 @@
 
 	function ToggleService ($q,ApiService,BaseUrl,localStorageService) {
 		var vm = this;
-		vm.status = false;
 		constructor();
 
 		function constructor (){
@@ -17,9 +16,7 @@
 		}
 
 		function _toggleApp (client_id,app_id) {
-			vm.status = !vm.status
-			console.log(vm.status);
-			return ApiService.getRequest(localStorageService.get('baseUrlDevice') + `/api/apptoggle/${client_id}/${app_id}`,null);
+			return ApiService.getRequest(localStorageService.get('baseUrlDevice') + '/api/apptoggle/'+client_id+'/'+app_id,null);
 		}
 
 	}
