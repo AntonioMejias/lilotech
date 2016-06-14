@@ -5,9 +5,9 @@ angular
     .module('lilotech')
     .controller("HomeController", HomeController);
 
-HomeController.$inject = ['MockService','$state', 'RoomService'];
+HomeController.$inject = ['MockService','$state', 'RoomService', 'localStorageService'];
 
-function HomeController(MockService, $state, RoomService) {
+function HomeController(MockService, $state, RoomService, localStorageService) {
 
     var vm = this;
     vm.prueba = 0;
@@ -21,12 +21,13 @@ function HomeController(MockService, $state, RoomService) {
         RoomService.getRooms().then(function(response) {
             vm.rooms = response;
             vm.cargando = false;
-            console.log("cargado los cuarts");
+            console.log("cargado los cuartos");
         });
     }
 
     function _onClickDetail(idRoom){
         console.log("probando");
+        //localStorageService.set('lastRoomSelected', idRoom);
     	$state.go('principal', {"idRoom" : idRoom});
     }
 

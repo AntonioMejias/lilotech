@@ -13,7 +13,10 @@ function BaseController(Rooms, localStorageService, UtilService, $state, $stateP
 
     function constructor() {
         vm.onClickBack = _onClickBack;
+        vm.onClickDetail = _onClickDetail;
         vm.idRoomSelected = $stateParams.idRoom;
+
+
         vm.obj = UtilService.utilObject;
 
         if (Rooms === null) {
@@ -28,6 +31,11 @@ function BaseController(Rooms, localStorageService, UtilService, $state, $stateP
     function _onClickBack() {
 
         $state.go('home');
+
+    }
+
+    function _onClickDetail(idRoom){
+        $state.go('principal', {"idRoom" : idRoom});
 
     }
 
