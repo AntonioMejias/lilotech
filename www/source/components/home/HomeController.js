@@ -5,35 +5,59 @@ angular
     .module('lilotech')
     .controller("HomeController", HomeController);
 
-HomeController.$inject = ['MockService','$state', 'RoomService', 'localStorageService'];
+HomeController.$inject = ['MockService', '$state', '$q', 'RoomService', 'localStorageService'];
 
-function HomeController(MockService, $state, RoomService, localStorageService) {
+function HomeController(MockService, $state, $q, RoomService, localStorageService) {
 
     var vm = this;
-    vm.prueba = 0;
     constructor();
 
-    function constructor(){
-    	vm.cargando = true;
+    function constructor() {
+        vm.cargando = true;
         vm.onClickDetail = _onClickDetail;
-        vm.aumentar = _aumentar;
 
-        RoomService.getRooms().then(function(response) {
-            vm.rooms = response;
-            vm.cargando = false;
-            console.log("cargado los cuartos");
+        RoomService.getRooms().then(function(rooms) {
+            $q.all(getApplicationsActive(rooms)) // Resuelve Todas las promesas
+                .then(function(newRooms) { // newRooms es un array con el valor de cada promesa resuelta
+                    vm.cargando = false;
+                    vm.rooms = newRooms;
+                })
+            
         });
     }
 
-    function _onClickDetail(idRoom){
-        console.log("probando");
-        //localStorageService.set('lastRoomSelected', idRoom);
-    	$state.go('principal', {"idRoom" : idRoom});
+    function _onClickDetail(idRoom) {
+        $state.go('principal', {
+            "idRoom": idRoom
+        });
     }
 
+    function getApplicationsActive(rooms) {
+        //Retorna un Array de promesas
+        return rooms.map(function(roomElement) {
+            //Retorna una promesa
+            return RoomService.getRoom(roomElement.Room.id)
+                .then(
+                    function(room) {
+                        console.log(room);
+                        var room = room.Client[0].Clientapp;
+                        // Hago la sumatoria de los ROOM que tengan Apps activas
+                        var applicationsActive = room.reduce(
+                                function(previousElement, element) {
 
-    function _aumentar (argument) {
-            vm.prueba++;
+                                    return previousElement + parseInt(element.status)
+                                }, 0) //Inicializando el primer valor previo en 0
+
+                        roomElement.Room.appInfo = {
+                            active: applicationsActive > 0 ? 'list-white' : '',
+                            appsActive: applicationsActive
+                        }
+
+                        //Se retorna el ROOM con la informacion necesaria agregada
+                        return roomElement.Room;
+                    })
+        })
     }
+
 
 }
