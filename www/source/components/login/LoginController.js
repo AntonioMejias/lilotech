@@ -56,53 +56,46 @@ function LoginController(LoginService, RoomService, UtilService, $state, $scope,
         LoginService
             .login(vm.user)
             .then(function(response) {
-                    var data;
-                    console.log("existe una respuesta");
-                    if (!response.data.result) {
-                        _cleanAnimation();
-                        ionicToast.show('Email o Contraseña incorrecta', 'bottom', false, 2000);
-                    } else {
-
-                        localStorageService.set("jwtToken", response.data.token);
-
-                        DeviceService.getDeviceToken().then(
-                            function(response) {
-                                localStorageService.set("jwtToken", response.token);
-
-                                RoomService.getRooms().then(
-                                    function(rooms) {
-                                        if (rooms.length > 0) 
-                                            $state.go('principal', {
-                                                "idRoom": rooms[0].Room.id
-                                            })
-                                        else
-                                            $state.go('principal', {
-                                                "idRoom": false
-                                            });
-                                    },
-                                    function(error) {
-                                        _cleanAnimation();
-                                        console.log(error);
-                                    })
-
-                            },
-                            function(error) {
-                                if (error.NotDeviceException) {
-                                    _cleanAnimation();
-                                    ionicToast.show('Su cuenta no posee ningún dispositivo asociado', 'bottom', false, 2000);
-                                } else
-                                    console.log(error);
-                            }
-                        );
-
-                    }
-
-                },
-                function(error) {
+                var data;
+                console.log("existe una respuesta");
+                if (!response.data.result) {
                     _cleanAnimation();
-                    console.log(error);
+                    ionicToast.show('Email o Contraseña incorrecta', 'bottom', false, 2000);
+                } else {
+
+                    localStorageService.set("jwtToken", response.data.token);
+
+                    return DeviceService.getDeviceToken(); //Retorna una promesa
                 }
-            );
+            }, function(error) {
+                _cleanAnimation();
+                console.log(error);
+            })
+            .then(function(response) {
+                localStorageService.set("jwtToken", response.token);
+
+                return RoomService.getRooms(); //Retorna una promesa
+
+            }, function(error) {
+                if (error.NotDeviceException) {
+                    _cleanAnimation();
+                    ionicToast.show('Su cuenta no posee ningún dispositivo asociado', 'bottom', false, 2000);
+                } else
+                    console.log(error);
+            })
+            .then(function(rooms) {
+                if (rooms.length > 0)
+                    $state.go('principal', {
+                        "idRoom": rooms[0].Room.id
+                    })
+                else
+                    $state.go('principal', {
+                        "idRoom": false
+                    });
+            }, function(error) {
+                _cleanAnimation();
+                console.log(error);
+            })
     }
 
     function _cleanAnimation() {
