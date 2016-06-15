@@ -9,6 +9,10 @@
 
 /**** GLOBAL RULES ****/
 
+.relative {
+    position: relative !important;
+
+}
 .scroll {
     /*transform: none !important;*/
     height: 100%;
@@ -58,6 +62,8 @@ input,a,.text,.popup button {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+input:focus::-webkit-input-placeholder { color:transparent !important; }
 
 .no-top{
     margin-top:0px !important;
@@ -136,6 +142,18 @@ input,a,.text,.popup button {
     opacity: 0;
 }
 .delay.ng-enter-active {
+    opacity: 1;
+}
+
+.p {
+    opacity: 1;
+}
+.p.ng-enter {
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 0;
+}
+.p.ng-enter-active {
     opacity: 1;
 }
 
@@ -345,6 +363,27 @@ input,a,.text,.popup button {
     display: flex;
     align-items: center;
     margin-top: 5px;
+    z-index: 1000;
+}
+
+.list-white {
+    background: white ;
+}
+
+.number-app {
+    position: absolute;
+    top: 1%;
+    color: white;
+    font-size: 16pt;
+    font-weight: bold;
+    padding: 5% 0 0 3%;
+}
+
+.list-white.item-list > span {
+    display: table;
+    margin: 0 auto;
+    color: #3399ff !important;
+    font-size: 18pt;
 }
 
 .item-list > span {
@@ -363,7 +402,47 @@ input,a,.text,.popup button {
     display: inline-table !important;
 }
 
+.item-notification{
+    width: 35%;
+    position: absolute;
+    padding: 2% 0 0 0;
+    top: 3px;
+    left: 2%;
+}
 
+
+
+@media (min-height:  1000px) and (min-width: 750px)  {
+
+    .item-list {
+        height: 200px;
+    }
+    .item-notification{
+        width: 35%;
+
+        position: absolute;
+       padding: 2% 0 0 0;
+        top: -1%;
+        left: 0;
+    }
+
+    .item-list > span {
+        font-size:30pt !important;
+    }
+
+    .number-app {
+        padding: 6% 0 0 4%;
+        font-size: 32pt !important;
+    }
+}
+
+@media screen and (min-width: 370px)  {
+    .number-app {
+        padding: 6% 0 0 4%;
+        font-size: 19pt;
+    }
+}
+ 
 /*---- Login responsive ----*/
 label {
     color: #ffffff;

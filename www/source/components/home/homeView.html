@@ -1,12 +1,14 @@
 <ion-content>
 	<ion-view view-title="Home">
-		<ion-content>
+		<ion-content ng-cloak>
 			<div ng-show ="!home.cargando" class="content-home">
 				<div class="row">
-					<div class="col col-33 delay" ng-repeat="room in home.rooms track by $index">
-						<div class="item-list" ng-click="home.onClickDetail(room.Room.id)">
-							<span>{{room.Room.name | capitalize}}</span>
+					<div class="col col-33 relative delay" ng-repeat="room in home.rooms track by $index">
+						<div ng-class="room.appInfo.active" class="item-list" ng-click="home.onClickDetail(room.id)">
+							<span>{{room.name | capitalize}}</span>
 						</div>
+						<img ng-if="room.appInfo.active == 'list-white'" class="item-notification" src="img/notihome.png" alt="">
+						<span ng-if="room.appInfo.active == 'list-white'" class="number-app">{{room.appInfo.appsActive}}</span></img>
 					</div>
 				</div>
 			</div>
