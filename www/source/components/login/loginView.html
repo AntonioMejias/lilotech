@@ -7,7 +7,7 @@
                         <div align="center">
                             <img class="logo" ng-src="img/iconoapp.png">
                             <h2 class="logo-text">lilotech</h2>
-                            <input class="input-login" type="text" ng-model="login.user.email" placeholder="E-mail">
+                            <input class="input-login" type="email" ng-model="login.user.email" placeholder="E-mail" autocorrect="off" autocapitalize="none">
                             <div class="divider-15"></div>
                             <input class="input-login" type="password" ng-model="login.user.password" placeholder="Contraseña">
                         </div>
@@ -28,8 +28,8 @@
             </div>
 
             <div ng-show="login.cargando" class="loading">
-                <div class="content-spinner">
-                    <ion-spinner icon="ripple" class="center-spinner spinner-light"></ion-spinner>
+                <div class="spinner">
+                    <ion-spinner icon="ripple" class="centered-spinner spinner-light"></ion-spinner>
                 </div>
             </div>
               

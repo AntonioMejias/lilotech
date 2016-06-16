@@ -15,17 +15,24 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
     function constructor() {
         var idRoom = $stateParams.idRoom;
         vm.cargando = true;
+        localStorageService.set('session', {
+                path: 'principal',
+                param: {
+                    state: true,
+                    value: idRoom,
+                    key: 'idRoom'
+                }
+            })
+            /*var idRoom;
 
-        /*var idRoom;
-
-        if($stateParams.idRoom){
-           idRoom = $stateParams.idRoom;
-        } else{
-           idRoom = localStorageService.get('lastRoomSelected');
-        }*/
+            if($stateParams.idRoom){
+               idRoom = $stateParams.idRoom;
+            } else{
+               idRoom = localStorageService.get('lastRoomSelected');
+            }*/
         vm.cargando;
 
-        if (idRoom) {      
+        if (idRoom) {
             RoomService
                 .getRoom(idRoom)
                 .then(
@@ -82,7 +89,7 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
             .map(function(app) {
                 var application_image = {
                     label: app.name,
-                    image: 'img/applications/'+app.image_id+'-'+app.status+'.png',
+                    image: 'img/applications/' + app.image_id + '-' + app.status + '.png',
                     status: app.status,
                     app_id: app.id,
                     client_id: app.client_id

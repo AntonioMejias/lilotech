@@ -516,10 +516,10 @@ label {
    
 
 }
-.spinner svg {
-  width: 30%;
-  height: 30%;
 
+.spinner svg {
+  width: 19% !important;
+  height: 85px !important;
 }
 
 .content-spinner{
@@ -535,6 +535,14 @@ label {
 
 }
 
+
+div.spinner {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  height: 85px;
+  text-align: center;
+}
 
 @media screen and (min-height: 475px) {
     .manilla {width: 32%;}
