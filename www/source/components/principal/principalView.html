@@ -2,16 +2,34 @@
 	<ion-view view-title="Principal">
 		<ion-content ng-cloak>
 
+
+			<!--<ion-slides  options="options" slider="data.slider">-->
+
+
 			<div ng-show="!principal.cargando" class="content-principal">
 				<div class="row">
-					<div class="col col-33 p" ng-repeat="element in principal.applications track by $index">
+
+					<!--<ion-slide-page>-->
+
+
+					<div class="box col col-33 delay" ng-repeat="element in principal.applications track by $index">
 						<div ng-click="principal.toggleApp(element)">
 							<img class="item-list-principal" ng-src="{{element.image}}">
 							<center><span class="label-principal" ng-class="element.label">{{element.label}}</span></center>
 						</div>
 					</div>
+
+
+					<!--</ion-slide-page>-->
+
 				</div>
 			</div>
+
+
+			<!--</ion-slides>-->
+
+
+
 
 			<div ng-show="principal.cargando" class="loading">
                 <div class="spinner">
@@ -22,26 +40,26 @@
 
 			<div class="bar bar-footer bar-footer-principal">
 		      	<a class="tab-item">
+		        	<img ng-src="{{principal.imgN.srcNoise}}"  class="icon" >
+		      	</a>
 
-		        <img src="img/sensors/palmadas.png"  class="icon">
+		      	<a class="tab-item">
+		        	<img ng-src="{{principal.imgM.srcMovement}}"  class="icon">
 		      	</a>
 		      	<a class="tab-item">
-		        <img src="img/sensors/movimiento_mucho.png"  class="icon">
+		        	<img ng-src="{{principal.imgP.srcPower}}"  class="icon">
 		      	</a>
 		      	<a class="tab-item">
-		        <img src="img/sensors/consumo_0W.png"  class="icon">
+		        	<img ng-src="{{principal.imgL.srcLuminosity}}"  class="icon">
 		      	</a>
 		      	<a class="tab-item">
-		        <img src="img/sensors/luz_full.png"  class="icon">
+		        	<img ng-src="{{principal.imgT.srcTemperature}}"  class="icon">
 		      	</a>
 		      	<a class="tab-item">
-		        <img src="img/sensors/temperatura_mayor0C.png"  class="icon">
+		        	<img ng-src="{{principal.imgS.srcSmoke}}"  class="icon">
 		      	</a>
-		      	<a class="tab-item">
-		        <img src="img/sensors/humo.png"  class="icon">
-		      </a>
-
 			</div>
+			
 		</ion-content>
 	</ion-view>
 </ion-content>
