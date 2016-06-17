@@ -1,62 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
-    <title></title>
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body>
-
-    <div ng-app="lilotech">
-      <div ui-view="login">
-      </div>
-
-      <div ui-view="navbar">
-      </div>
-
-      <div ui-view="home">
-      </div>
-      <div ui-view="loading">
-      </div>
-
-    </div>
-    
-    <!-- Libs -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
-    <script src="lib/angular-resource/angular-resource.min.js"></script>
-    <script src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
-    <script src="lib/angular-animate/angular-animate.min.js"></script>
-    <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
-    <script src="lib/ionic-ion-imageCacheFactory/ionic.ion.imagecachefactory.js"></script>
-    <script src="cordova.js"></script>
-
-    <!-- Module, Configuration, Routes -->
-    <script src="source/app.module.js"></script>
-    <script src="source/app.config.js"></script>
-    <script src="source/app.run.js"></script>
-    <script src="source/app.routes.js"></script>
-    <script src="source/app.filter.js"></script>
-
-
-    <!-- Services -->
-    <script src="source/shared/generics/ApiService.js"></script>
-    <script src="source/shared/generics/UtilService.js"></script>
-    <script src="source/shared/generics/MockService.js"></script>
-    <script src="source/components/login/LoginService.js"></script>
-    <script src="source/components/login/AuthService.js"></script>
-    <script src="source/components/device/DeviceService.js"></script>
-    <script src="source/components/room/RoomService.js"></script>
-    <script src="source/components/toggle/ToggleService.js"></script>
-
-    
-    <!-- Controllers -->
-    <script src="source/components/login/LoginController.js"></script>
-    <script src="source/shared/master/BaseController.js"></script>
-    <script src="source/components/home/HomeController.js"></script>
-    <script src="source/components/principal/PrincipalController.js"></script>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
+        <title></title>
+        <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div ng-app="lilotech">
+            <div ui-view="login">
+            </div>
+            <div ui-view="navbar">
+            </div>
+            <div ui-view="home">
+            </div>
+            <div ui-view="loading">
+            </div>
+        </div>
+        
+        <!-- Libs -->
+        <script src="lib/ionic/js/ionic.bundle.js"></script>
+        <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+        <script src="lib/angular-resource/angular-resource.min.js"></script>
+        <script src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
+        <script src="lib/angular-animate/angular-animate.min.js"></script>
+        <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
+        <script src="lib/ionic-ion-imageCacheFactory/ionic.ion.imagecachefactory.js"></script>
+        <script src="lib/socket.io-client/socket.io.js"></script>
+        <script src="lib/angular-socket-io/socket.js"></script>
+        <script src="cordova.js"></script>
+        <!-- Module, Configuration, Routes -->
+        <script src="source/app.module.js"></script>
+        <script src="source/app.config.js"></script>
+        <script src="source/app.run.js"></script>
+        <script src="source/app.routes.js"></script>
+        <script src="source/app.filter.js"></script>
+        <!-- Services -->
+        <script src="source/shared/generics/ApiService.js"></script>
+        <script src="source/shared/generics/UtilService.js"></script>
+        <script src="source/shared/generics/MockService.js"></script>
+        <script src="source/components/login/LoginService.js"></script>
+        <script src="source/components/login/AuthService.js"></script>
+        <script src="source/components/device/DeviceService.js"></script>
+        <script src="source/components/room/RoomService.js"></script>
+        <script src="source/components/toggle/ToggleService.js"></script>+
+        <script src="source/shared/socket/SocketService.js"></script>
+        
+        <!-- Controllers -->
+        <script src="source/components/login/LoginController.js"></script>
+        <script src="source/shared/master/BaseController.js"></script>
+        <script src="source/components/home/HomeController.js"></script>
+        <script src="source/components/principal/PrincipalController.js"></script>
+    </body>
 </html>

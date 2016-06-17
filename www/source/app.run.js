@@ -70,11 +70,12 @@ angular.module('lilotech')
         },function(failed){
             console.log("An image filed: "+failed);
         });
-})
-.run(['localStorageService','$state', function(localStorageService,$state){
-      var sesion = localStorageService.get('session');
+});
+/*.run(['localStorageService','$state','$rootScope', function(localStorageService,$state,$rootScope){
 
-      if(sesion) {
+      /*$rootScope.$on('$stateChangeStart', function (event, toState) { 
+            var sesion = localStorageService.get('session');
+             if(sesion) {
 
             if(sesion.param.state) {
                   console.log(sesion.path);
@@ -84,7 +85,9 @@ angular.module('lilotech')
                 $state.go(sesion.path)  
             }
       }
-}]);
+
+    }  )
+}]);*/
 
 
         

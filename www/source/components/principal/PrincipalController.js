@@ -5,12 +5,13 @@ angular
     .module('lilotech')
     .controller("PrincipalController", PrincipalController);
 
-PrincipalController.$inject = ['RoomService', 'ToggleService', '$stateParams', 'MockService', 'localStorageService', '$state'];
+PrincipalController.$inject = ['SocketService', 'RoomService', 'ToggleService', '$stateParams', 'MockService', 'localStorageService', '$state'];
 
-function PrincipalController(RoomService, ToggleService, $stateParams, MockService, localStorageService, $state) {
+function PrincipalController(SocketService, RoomService, ToggleService, $stateParams, MockService, localStorageService, $state) {
 
     var vm = this;
     constructor();
+    socketEvent();
 
     function constructor() {
         var idRoom = $stateParams.idRoom;
@@ -103,6 +104,50 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
 
     function _aumentar(argument) {
         vm.prueba++;
+    }
+
+    function socketEvent() {
+        //console.log(SocketService);
+        SocketService.on('appmonitor', function(data) {
+
+            var app_id = data.target.split("-")[2];
+
+            vm.applications = vm.applications.map(function(element) {
+                if (element.app_id == app_id) {
+
+                    if (data.status == 0) {
+
+                        element.image = element.image.replace("1.png", "0.png");
+                        element.status = "1";
+                    } else {
+
+                        element.image = element.image.replace("0.png", "1.png");
+                        element.status = "0";
+                    }
+
+                    return element;
+                }
+
+                return element;
+            })
+            //console.log(data);
+            //console.log(app_id);
+        });
+
+        /*SocketService.on('luminosityvalue',function (data) {
+            console.log("FUNCIONA SOCKETTTT YEAHH");
+            console.log(data);
+        });
+        SocketService.on('noisevalue',function (data) {
+            console.log("FUNCIONA SOCKETTTT YEAHH");
+            console.log(data);
+        });
+        SocketService.on('clientuip',function (data) {
+            console.log("FUNCIONA SOCKETTTT YEAHH");
+            console.log(data);
+        });*/
+
+
     }
 
 }

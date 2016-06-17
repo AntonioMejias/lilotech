@@ -14,17 +14,38 @@ angular.module('lilotech')
             views: {
                 "login": {
                     templateUrl: "source/components/login/loginView.html",
-                    controller: "LoginController as login"
-                }/*,
-                "loading": {
-                    templateUrl: "source/shared/master/loadingSpinner.html",
-                    controller: "BaseController as base",
+                    controller: "LoginController as login",
                     resolve: {
-                        Rooms: function() {
+                        session: function(localStorageService,$state) {
+                            var sesion = localStorageService.get('session');
+
+                            if (sesion) {
+
+                                if (sesion.param.state) {
+                                    console.log(sesion.path);
+                                    $state.go(sesion.path, {
+                                        idRoom: sesion.param.value
+                                    })
+                                } else {
+                                    console.log(sesion.path)
+                                    $state.go(sesion.path)
+                                }
+                            }
+
                             return null;
                         }
                     }
-                }*/
+                }
+                /*,
+                                "loading": {
+                                    templateUrl: "source/shared/master/loadingSpinner.html",
+                                    controller: "BaseController as base",
+                                    resolve: {
+                                        Rooms: function() {
+                                            return null;
+                                        }
+                                    }
+                                }*/
             }
         })
 

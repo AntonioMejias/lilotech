@@ -46,6 +46,7 @@
                 })
                 .then(function(response) {
                     deferred.resolve(response);
+                    localStorageService.set("baseUrlSocket", "http://" + device.ip + ":" + device.port);
                 }, function(error) {
                     console.log("fue rechazada la peticion en local");
                     localStorageService.set("baseUrlDevice", "http://" + device.ip + ":" + device.port);

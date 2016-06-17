@@ -5,9 +5,9 @@ angular
     .module('lilotech')
     .controller("LoginController", LoginController);
 
-LoginController.$inject = ['LoginService', 'RoomService', 'UtilService', '$state', '$scope', 'ionicToast', 'localStorageService', 'DeviceService'];
+LoginController.$inject = ['$rootScope','LoginService', 'RoomService', 'UtilService', '$state', '$scope', 'ionicToast', 'localStorageService', 'DeviceService'];
 
-function LoginController(LoginService, RoomService, UtilService, $state, $scope, ionicToast, localStorageService, DeviceService) {
+function LoginController($rootScope, LoginService, RoomService, UtilService, $state, $scope, ionicToast, localStorageService, DeviceService) {
 
     var vm = this;
     sessionRedirect();
@@ -30,8 +30,13 @@ function LoginController(LoginService, RoomService, UtilService, $state, $scope,
 
 
         //Only Debug Mode
-        vm.user.email = "lilo@lilotechnology.com"; //"antonio@hostienda.com"
-        vm.user.password = "asdasd";
+        //vm.user.email = "lilo@lilotechnology.com"; //"antonio@hostienda.com"
+        //vm.user.password = "asdasd";
+
+        /*$rootScope.$on("$ionicView.beforeEnter", function(event, data) {
+            // handle event
+            console.log("HOLAAAAAAAAAAAAAAAAAA");
+        });*/
 
     }
 
@@ -100,20 +105,7 @@ function LoginController(LoginService, RoomService, UtilService, $state, $scope,
     }
 
     function sessionRedirect() {
-        var sesion = localStorageService.get('session');
 
-        if (sesion) {
-
-            if (sesion.param.state) {
-                console.log(sesion.path);
-                $state.go(sesion.path, {
-                    idRoom: sesion.param.value
-                })
-            } else {
-                console.log(sesion.path)
-                $state.go(sesion.path)
-            }
-        }
     }
 
     function _cleanAnimation() {
