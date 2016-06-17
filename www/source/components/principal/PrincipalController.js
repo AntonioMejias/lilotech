@@ -15,7 +15,7 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
     function constructor() {
         var idRoom = $stateParams.idRoom;
         vm.cargando = true;
-
+    
         /*var idRoom;
 
         if($stateParams.idRoom){
@@ -30,6 +30,74 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
                 .getRoom(idRoom)
                 .then(
                     function(response) {
+                        console.log(response.Client[0].status); //Devuelve el estado de los sensores
+
+                        // Luminosity
+                        if (response.Client[0].status.luminosity==false){
+                            vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-0.png"};
+                        }else{
+                           vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-"+response.Client[0].status.luminosity+".png"};
+                        }
+
+                        // Movement
+                        if (response.Client[0].status.movement==false){
+                            vm.imgM = { srcMovement: "img/sensors/status-movement-0.png"};
+                        }else{
+                            vm.imgM = { srcMovement: "img/sensors/status-movement-"+response.Client[0].status.movement+".png"};
+                        }
+
+                        // Noise
+                        if (response.Client[0].status.noise==false){
+                            vm.imgN = { srcNoise: "img/sensors/status-noise-0.png"};
+                        }else{
+                            vm.imgN = { srcNoise: "img/sensors/status-noise-"+response.Client[0].status.noise+".png"};
+                        }
+                        
+                        // Smoke
+                        if (response.Client[0].status.smoke==false){
+                            vm.imgS = { srcSmoke: "img/sensors/status-smoke-0.png"};
+                        }else{
+                            vm.imgS = { srcSmoke: "img/sensors/status-smoke-"+response.Client[0].status.smoke+".png"};
+                        }
+
+                        // Power
+                        if (response.Client[0].status.power>"5"){
+                            vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
+                        }else
+                        if (response.Client[0].status.power>"10"){
+                            vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
+                        }else
+                        if (response.Client[0].status.power==false){
+                             vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+                        }else{
+                            vm.imgP = { srcPower: "img/sensors/status-power-"+response.Client[0].status.power+".png"};
+                        }
+
+                        // Temperature
+                        if(response.Client[0].status.temperature<"0"){
+                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};
+                        } else 
+                        if(response.Client[0].status.temperature>="0" && response.Client[0].status.temperature<"10"){
+                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-1.png"};
+                        } else
+                        if(response.Client[0].status.temperature>="10" && response.Client[0].status.temperature<"20"){
+                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-2.png"};
+                        } else 
+                        if(response.Client[0].status.temperature>"20" && response.Client[0].status.temperature<"25"){
+                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-3.png"};
+                        } else 
+                        if(response.Client[0].status.temperature>="25" && response.Client[0].status.temperature<"30"){
+                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-4.png"};
+                        } else 
+                        if(response.Client[0].status.temperature>="30" && response.Client[0].status.temperature<"35"){
+                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-5.png"};
+                        } else
+                        if (response.Client[0].status.temperature==false){
+                             vm.imgP = { srcTemperature: "img/sensors/status-temperature-0.png"};
+                        } else{ 
+                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-6.png"};
+                        }
+
                         vm.cargando = false;
                         var ClientApp = response.Client[0].Clientapp;
                         vm.applications = _generateAppImage(ClientApp);
@@ -72,6 +140,7 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
             })
     }
 
+
     function _generateAppImage(ClientApps) {
         //var filterAppId = ["1", "2"];
 
@@ -93,6 +162,8 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
 
         return applications;
     }
+
+
 
     function _aumentar(argument) {
         vm.prueba++;
