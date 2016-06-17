@@ -61,10 +61,10 @@ function PrincipalController(RoomService, ToggleService, $stateParams, MockServi
                         }
 
                         // Power
-                        if (response.Client[0].status.power>"5"){
+                        if (response.Client[0].status.power>"5" && response.Client[0].status.power<"10"){
                             vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
                         }else
-                        if (response.Client[0].status.power>"10"){
+                        if (response.Client[0].status.power>="10"){
                             vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
                         }else
                         if (response.Client[0].status.power==false){
