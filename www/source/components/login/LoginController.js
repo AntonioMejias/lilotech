@@ -10,6 +10,7 @@ LoginController.$inject = ['LoginService', 'RoomService', 'UtilService', '$state
 function LoginController(LoginService, RoomService, UtilService, $state, $scope, ionicToast, localStorageService, DeviceService) {
 
     var vm = this;
+    sessionRedirect();
     constructor();
 
     function constructor() {
@@ -96,6 +97,23 @@ function LoginController(LoginService, RoomService, UtilService, $state, $scope,
                 _cleanAnimation();
                 console.log(error);
             })
+    }
+
+    function sessionRedirect() {
+        var sesion = localStorageService.get('session');
+
+        if (sesion) {
+
+            if (sesion.param.state) {
+                console.log(sesion.path);
+                $state.go(sesion.path, {
+                    idRoom: sesion.param.value
+                })
+            } else {
+                console.log(sesion.path)
+                $state.go(sesion.path)
+            }
+        }
     }
 
     function _cleanAnimation() {

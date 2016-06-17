@@ -50,7 +50,7 @@ function BaseController(Rooms, localStorageService, UtilService, $state, $stateP
         confirmPopup
             .then(function(answer) {
                 if (answer) {
-                    localStorageService.set("jwtToken", '');
+                    localStorageService.clearAll();
                     console.log(localStorageService.get("jwtToken"));
                     $state.go('index');
                 }

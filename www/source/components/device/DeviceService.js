@@ -16,6 +16,8 @@
 
             var deferred = $q.defer();
             var deviceDeferred = $q.defer();
+            var device;
+            var data;
 
             ApiService
                 .getArrayRequest(BaseUrl + '/api/getdevices', false)
@@ -28,12 +30,16 @@
                         return deviceDeferred.promise;
                     }
 
-                    var device = response[0].Device;
-                    var data = {
+                    device = response[0].Device;
+                    data = {
                         token: device.token
                     }
+
+                    var deviceserial =  "lilo"+device.serial + ".lilo:" + 80;
+                    console.log(deviceserial)
+                    localStorageService.set("baseUrlDevice", "http://" + deviceserial);
                     
-                    localStorageService.set("baseUrlDevice", "http://" + device.ip + ":" + device.port);
+                    //localStorageService.set("baseUrlDevice", "http://" + device.ip + ":" + device.port);
 
                     return ApiService.postRequest(localStorageService.get("baseUrlDevice") + '/api/logintoken', data, false, 'urlencoded');
 
@@ -41,6 +47,15 @@
                 .then(function(response) {
                     deferred.resolve(response);
                 }, function(error) {
+                    console.log("fue rechazada la peticion en local");
+                    localStorageService.set("baseUrlDevice", "http://" + device.ip + ":" + device.port);
+                    return ApiService.postRequest(localStorageService.get("baseUrlDevice") + '/api/logintoken', data, false, 'urlencoded');
+                    
+                })
+                .then(function(response) {
+                     deferred.resolve(response);
+                },
+                    function(error) {
                     deferred.reject(error);
                 })
                 .catch(function(error) {

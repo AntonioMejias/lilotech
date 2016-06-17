@@ -13,6 +13,7 @@ function HomeController(MockService, $state, $q, RoomService, localStorageServic
     constructor();
 
     function constructor() {
+        localStorageService.set('session',{path:'home',param:{state:false}})
         vm.cargando = true;
         vm.onClickDetail = _onClickDetail;
 
