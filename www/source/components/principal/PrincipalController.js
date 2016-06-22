@@ -213,18 +213,52 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             //console.log(app_id);
         });
 
+        // Luminosity
         /*SocketService.on('luminosityvalue',function (data) {
-            console.log("FUNCIONA SOCKETTTT YEAHH");
+            console.log("Socket Luminosity");
+            console.log ("luminosity node: ", +data.node);
+            console.log ("luminosity value: ", +data.value);
             console.log(data);
-        });
-        SocketService.on('noisevalue',function (data) {
-            console.log("FUNCIONA SOCKETTTT YEAHH");
-            console.log(data);
-        });
-        SocketService.on('clientuip',function (data) {
-            console.log("FUNCIONA SOCKETTTT YEAHH");
+
+            if(data.value==false){
+                vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-0.png"};
+            } else {
+                vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-"+data.value+".png"};
+            }
+
+            
+        });*/
+
+        // Noise
+        /*SocketService.on('noisevalue',function (data) {
+            console.log("Socket Noise");
             console.log(data);
         });*/
+
+        // Movement
+        /*SocketService.on('movementdetected',function (data) {
+            console.log("Socket Movement");
+            console.log(data);
+        });*/
+
+        // Power
+        /*SocketService.on('clientuip',function (data) {
+            console.log("Socket Power");
+            console.log(data);
+        });*/
+
+        // Smoke
+        /*SocketService.on('smokevalue',function (data) {
+            console.log("Socket Smoke");
+            console.log(data);
+        });*/
+
+        // Temperature
+        /*SocketService.on('temperaturevalue',function (data) {
+            console.log("Socket Temperature");
+            console.log(data);
+        });*/
+
 
 
     }
