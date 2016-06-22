@@ -33,6 +33,59 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                     function(response) {
                         console.log(response.Client[0].status); //Devuelve el estado de los sensores
 
+                        // Power 
+                        switch (response.Client[0].status.powerrange){
+                            case 0:
+                                vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+                                break;
+                            case 1:
+                                vm.imgP = { srcPower: "img/sensors/status-power-1.png"};
+                                break;
+                            case 2: 
+                                vm.imgP = { srcPower: "img/sensors/status-power-2.png"};
+                                break;
+                            case 3:
+                                vm.imgP = { srcPower: "img/sensors/status-power-3.png"};
+                                break;
+                            case 4:
+                                vm.imgP = { srcPower: "img/sensors/status-power-4.png"};
+                                break;
+                            case 5:
+                                vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
+                                break;
+                            case false:
+                                vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+                                break;
+                        }
+
+                        // Temperature
+                        switch (response.Client[0].status.temperaturerange){
+                            case 0:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};   
+                                break;
+                            case 1:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-1.png"};
+                                break;
+                            case 2: 
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-2.png"};
+                                break;
+                            case 3:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-3.png"};
+                                break;
+                            case 4:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-4.png"};
+                                break;
+                            case 5:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-5.png"};
+                                break;
+                            case 6:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-6.png"};
+                                break;
+                            case false:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};
+                                break;
+                        }
+
                         // Luminosity
                         if (response.Client[0].status.luminosity==false){
                             vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-0.png"};
@@ -59,44 +112,6 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                             vm.imgS = { srcSmoke: "img/sensors/status-smoke-0.png"};
                         }else{
                             vm.imgS = { srcSmoke: "img/sensors/status-smoke-"+response.Client[0].status.smoke+".png"};
-                        }
-
-                        // Power
-                        if (response.Client[0].status.power>"5" && response.Client[0].status.power<"10"){
-                            vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
-                        }else
-                        if (response.Client[0].status.power>="10"){
-                            vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
-                        }else
-                        if (response.Client[0].status.power==false){
-                             vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
-                        }else{
-                            vm.imgP = { srcPower: "img/sensors/status-power-"+response.Client[0].status.power+".png"};
-                        }
-
-                        // Temperature
-                        if(response.Client[0].status.temperature<"0"){
-                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};
-                        } else 
-                        if(response.Client[0].status.temperature>="0" && response.Client[0].status.temperature<"10"){
-                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-1.png"};
-                        } else
-                        if(response.Client[0].status.temperature>="10" && response.Client[0].status.temperature<"20"){
-                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-2.png"};
-                        } else 
-                        if(response.Client[0].status.temperature>"20" && response.Client[0].status.temperature<"25"){
-                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-3.png"};
-                        } else 
-                        if(response.Client[0].status.temperature>="25" && response.Client[0].status.temperature<"30"){
-                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-4.png"};
-                        } else 
-                        if(response.Client[0].status.temperature>="30" && response.Client[0].status.temperature<"35"){
-                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-5.png"};
-                        } else
-                        if (response.Client[0].status.temperature==false){
-                             vm.imgP = { srcTemperature: "img/sensors/status-temperature-0.png"};
-                        } else{ 
-                            vm.imgT = { srcTemperature: "img/sensors/status-temperature-6.png"};
                         }
 
                         vm.cargando = false;
@@ -192,18 +207,52 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             //console.log(app_id);
         });
 
+        // Luminosity
         /*SocketService.on('luminosityvalue',function (data) {
-            console.log("FUNCIONA SOCKETTTT YEAHH");
+            console.log("Socket Luminosity");
+            console.log ("luminosity node: ", +data.node);
+            console.log ("luminosity value: ", +data.value);
             console.log(data);
-        });
-        SocketService.on('noisevalue',function (data) {
-            console.log("FUNCIONA SOCKETTTT YEAHH");
-            console.log(data);
-        });
-        SocketService.on('clientuip',function (data) {
-            console.log("FUNCIONA SOCKETTTT YEAHH");
+
+            if(data.value==false){
+                vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-0.png"};
+            } else {
+                vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-"+data.value+".png"};
+            }
+
+            
+        });*/
+
+        // Noise
+        /*SocketService.on('noisevalue',function (data) {
+            console.log("Socket Noise");
             console.log(data);
         });*/
+
+        // Movement
+        /*SocketService.on('movementdetected',function (data) {
+            console.log("Socket Movement");
+            console.log(data);
+        });*/
+
+        // Power
+        /*SocketService.on('clientuip',function (data) {
+            console.log("Socket Power");
+            console.log(data);
+        });*/
+
+        // Smoke
+        /*SocketService.on('smokevalue',function (data) {
+            console.log("Socket Smoke");
+            console.log(data);
+        });*/
+
+        // Temperature
+        /*SocketService.on('temperaturevalue',function (data) {
+            console.log("Socket Temperature");
+            console.log(data);
+        });*/
+
 
 
     }
