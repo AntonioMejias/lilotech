@@ -33,6 +33,60 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                     function(response) {
                         console.log(response.Client[0].status); //Devuelve el estado de los sensores
 
+                        // Power 
+                        switch (response.Client[0].status.powerrange){
+                            case 0:
+                                vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+                                break;
+                            case 1:
+                                vm.imgP = { srcPower: "img/sensors/status-power-1.png"};
+                                break;
+                            case 2: 
+                                vm.imgP = { srcPower: "img/sensors/status-power-2.png"};
+                                break;
+                            case 3:
+                                vm.imgP = { srcPower: "img/sensors/status-power-3.png"};
+                                break;
+                            case 4:
+                                vm.imgP = { srcPower: "img/sensors/status-power-4.png"};
+                                break;
+                            case 5:
+                                vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
+                                break;
+                            case false:
+                                vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+                                break;
+                        }
+
+                        // Temperature
+                        switch (response.Client[0].status.temperaturerange){
+                            case 0:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};   
+                                break;
+                            case 1:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-1.png"};
+                                break;
+                            case 2: 
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-2.png"};
+                                break;
+                            case 3:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-3.png"};
+                                break;
+                            case 4:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-4.png"};
+                                break;
+                            case 5:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-5.png"};
+                                break;
+                            case 6:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-6.png"};
+                                break;
+                            case false:
+                                vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};
+                                break;
+                        }
+
+
                         // Luminosity
                         if (response.Client[0].status.luminosity==false){
                             vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-0.png"};
@@ -59,19 +113,6 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                             vm.imgS = { srcSmoke: "img/sensors/status-smoke-0.png"};
                         }else{
                             vm.imgS = { srcSmoke: "img/sensors/status-smoke-"+response.Client[0].status.smoke+".png"};
-                        }
-
-                        // Power
-                        if (response.Client[0].status.power>"5" && response.Client[0].status.power<"10"){
-                            vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
-                        }else
-                        if (response.Client[0].status.power>="10"){
-                            vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
-                        }else
-                        if (response.Client[0].status.power==false){
-                             vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
-                        }else{
-                            vm.imgP = { srcPower: "img/sensors/status-power-"+response.Client[0].status.power+".png"};
                         }
 
                         // Temperature

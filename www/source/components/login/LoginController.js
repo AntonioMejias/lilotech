@@ -30,8 +30,8 @@ function LoginController($rootScope, LoginService, RoomService, UtilService, $st
 
 
         //Only Debug Mode
-        //vm.user.email = "lilo@lilotechnology.com"; //"antonio@hostienda.com"
-        //vm.user.password = "asdasd";
+        vm.user.email = "lilo@lilotechnology.com"; //"antonio@hostienda.com"
+        vm.user.password = "asdasd";
 
         /*$rootScope.$on("$ionicView.beforeEnter", function(event, data) {
             // handle event
