@@ -118,7 +118,6 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
 
         vm.elementsD = MockService.elementsD;
         vm.toggleApp = _toggleApp;
-        vm.aumentar = _aumentar;
 
 
     }
@@ -164,11 +163,6 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
         return applications;
     }
 
-
-
-    function _aumentar(argument) {
-        vm.prueba++;
-    }
 
     function socketEvent() {
         //console.log(SocketService);

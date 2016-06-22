@@ -5,15 +5,16 @@ angular
     .module('lilotech')
     .controller("HomeController", HomeController);
 
-HomeController.$inject = ['MockService', '$state', '$q', 'RoomService', 'localStorageService'];
+HomeController.$inject = ['SocketService','MockService', '$state', '$q', 'RoomService', 'localStorageService'];
 
-function HomeController(MockService, $state, $q, RoomService, localStorageService) {
+function HomeController(SocketService, MockService, $state, $q, RoomService, localStorageService) {
 
     var vm = this;
     constructor();
+    socketEvent();
 
     function constructor() {
-        localStorageService.set('session',{path:'home',param:{state:false}})
+        
         vm.cargando = true;
         vm.onClickDetail = _onClickDetail;
 
@@ -57,6 +58,12 @@ function HomeController(MockService, $state, $q, RoomService, localStorageServic
                         //Se retorna el ROOM con la informacion necesaria agregada
                         return roomElement.Room;
                     })
+        })
+    }
+
+    function socketEvent (){
+        SocketService.on('appmonitor', function(data) {
+            console.log("cambio de estado");
         })
     }
 

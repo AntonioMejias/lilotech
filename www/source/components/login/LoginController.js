@@ -5,7 +5,7 @@ angular
     .module('lilotech')
     .controller("LoginController", LoginController);
 
-LoginController.$inject = ['$rootScope','LoginService', 'RoomService', 'UtilService', '$state', '$scope', 'ionicToast', 'localStorageService', 'DeviceService'];
+LoginController.$inject = ['$rootScope', 'LoginService', 'RoomService', 'UtilService', '$state', '$scope', 'ionicToast', 'localStorageService', 'DeviceService'];
 
 function LoginController($rootScope, LoginService, RoomService, UtilService, $state, $scope, ionicToast, localStorageService, DeviceService) {
 
@@ -30,8 +30,8 @@ function LoginController($rootScope, LoginService, RoomService, UtilService, $st
 
 
         //Only Debug Mode
-        //vm.user.email = "lilo@lilotechnology.com"; //"antonio@hostienda.com"
-        //vm.user.password = "asdasd";
+        vm.user.email = "lilo@lilotechnology.com"; //"antonio@hostienda.com"
+        vm.user.password = "asdasd";
 
         /*$rootScope.$on("$ionicView.beforeEnter", function(event, data) {
             // handle event
@@ -90,7 +90,8 @@ function LoginController($rootScope, LoginService, RoomService, UtilService, $st
                     console.log(error);
             })
             .then(function(rooms) {
-                if (rooms.length > 0)
+                localStorageService.set('session',true);
+                if (rooms.length > 0) 
                     $state.go('principal', {
                         "idRoom": rooms[0].Room.id
                     })
@@ -105,7 +106,11 @@ function LoginController($rootScope, LoginService, RoomService, UtilService, $st
     }
 
     function sessionRedirect() {
+        var sesion = localStorageService.get('session');
 
+        if (sesion) {
+            $state.go("home")  
+        }
     }
 
     function _cleanAnimation() {
