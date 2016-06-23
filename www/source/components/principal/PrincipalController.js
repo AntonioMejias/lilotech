@@ -220,39 +220,118 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                 vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-"+data.value+".png"};
             }
 
-            
         });*/
 
         // Noise
-        /*SocketService.on('noisevalue',function (data) {
+        /*ocketService.on('noisevalue',function (data) {
             console.log("Socket Noise");
+            console.log ("noise node: ", +data.node);
+            console.log ("noise value: ", +data.value);
             console.log(data);
+
+            if (data.value==false){
+                vm.imgN = { srcNoise: "img/sensors/status-noise-0.png"};
+            }else{
+                vm.imgN = { srcNoise: "img/sensors/status-noise-"+data.value+".png"};
+            }
         });*/
 
         // Movement
         /*SocketService.on('movementdetected',function (data) {
             console.log("Socket Movement");
+            console.log ("movement node: ", +data.node);
+            console.log ("movement value: ", +data.value);
             console.log(data);
+
+            if (data.value==false){
+                vm.imgM = { srcMovement: "img/sensors/status-movement-0.png"};
+            }else{
+                vm.imgM = { srcMovement: "img/sensors/status-movement-"+data.value+".png"};
+            }
         });*/
 
         // Power
         /*SocketService.on('clientuip',function (data) {
             console.log("Socket Power");
+            console.log ("power node: ", +data.node);
+            console.log ("power power: ", +data.power);
+            console.log ("power range: ", +data.range);
             console.log(data);
+
+            switch (data.range){
+                case 0:
+                    vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+                    break;
+                case 1:
+                    vm.imgP = { srcPower: "img/sensors/status-power-1.png"};
+                    break;
+                case 2: 
+                    vm.imgP = { srcPower: "img/sensors/status-power-2.png"};
+                    break;
+                case 3:
+                    vm.imgP = { srcPower: "img/sensors/status-power-3.png"};
+                    break;
+                case 4:
+                    vm.imgP = { srcPower: "img/sensors/status-power-4.png"};
+                    break;
+                case 5:
+                    vm.imgP = { srcPower: "img/sensors/status-power-5.png"};
+                    break;
+                case false:
+                    vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+                    break;
+            }
         });*/
 
         // Smoke
         /*SocketService.on('smokevalue',function (data) {
             console.log("Socket Smoke");
+            console.log ("smoke node: ", +data.node);
+            console.log ("smoke value: ", +data.value);
             console.log(data);
+
+            if (data.value==false){
+                vm.imgS = { srcSmoke: "img/sensors/status-smoke-0.png"};
+            }else{
+                vm.imgS = { srcSmoke: "img/sensors/status-smoke-"+data.value+".png"};
+            }
         });*/
 
         // Temperature
         /*SocketService.on('temperaturevalue',function (data) {
             console.log("Socket Temperature");
+            console.log ("temperature node: ", +data.node);
+            console.log ("temperature value: ", +data.value);
+            console.log ("temperature range: ", +data.range);
             console.log(data);
-        });*/
 
+            switch (data.range){
+                case 0:
+                    vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};   
+                    break;
+                case 1:
+                    vm.imgT = { srcTemperature: "img/sensors/status-temperature-1.png"};
+                    break;
+                case 2: 
+                    vm.imgT = { srcTemperature: "img/sensors/status-temperature-2.png"};
+                    break;
+                case 3:
+                    vm.imgT = { srcTemperature: "img/sensors/status-temperature-3.png"};
+                    break;
+                case 4:
+                    vm.imgT = { srcTemperature: "img/sensors/status-temperature-4.png"};
+                    break;
+                case 5:
+                    vm.imgT = { srcTemperature: "img/sensors/status-temperature-5.png"};
+                    break;
+                case 6:
+                    vm.imgT = { srcTemperature: "img/sensors/status-temperature-6.png"};
+                    break;
+                case false:
+                    vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};
+                    break;
+            }
+        });*/
 
 
     }
