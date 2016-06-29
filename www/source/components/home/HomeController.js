@@ -17,7 +17,11 @@ function HomeController(SocketService, MockService, $state, $q, RoomService, loc
         
         vm.cargando = true;
         vm.onClickDetail = _onClickDetail;
+        _cargarCuartosApp();
+        
+    }
 
+    function _cargarCuartosApp() {
         RoomService.getRooms().then(function(rooms) {
             $q.all(getApplicationsActive(rooms)) // Resuelve Todas las promesas
                 .then(function(newRooms) { // newRooms es un array con el valor de cada promesa resuelta
@@ -63,7 +67,7 @@ function HomeController(SocketService, MockService, $state, $q, RoomService, loc
 
     function socketEvent (){
         SocketService.on('appmonitor', function(data) {
-            console.log("cambio de estado");
+            _cargarCuartosApp();
         })
     }
 
