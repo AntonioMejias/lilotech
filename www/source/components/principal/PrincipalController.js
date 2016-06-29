@@ -220,7 +220,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("luminosity value: ", +data.value);
             console.log(data);
 
-            if(data.value==false || data.value==-1){
+            if(data.value==false || data.value<=-1){
                 vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-0.png"};
             } else {
                 vm.imgL = { srcLuminosity: "img/sensors/status-luminosity-"+data.value+".png"};
@@ -235,7 +235,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("noise value: ", +data.value);
             console.log(data);
 
-            if (data.value==false && data.value==-1){
+            if (data.value==false && data.value<=-1){
                 vm.imgN = { srcNoise: "img/sensors/status-noise-0.png"};
             }else{
                 vm.imgN = { srcNoise: "img/sensors/status-noise-"+data.value+".png"};
@@ -249,7 +249,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("movement value: ", +data.value);
             console.log(data);
 
-            if (data.value==false && data.value==-1){
+            if (data.value==false && data.value<=-1){
                 vm.imgM = { srcMovement: "img/sensors/status-movement-0.png"};
             }else{
                 vm.imgM = { srcMovement: "img/sensors/status-movement-"+data.value+".png"};
@@ -289,6 +289,9 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                 case false:
                     vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
                     break;
+                default:
+                    vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+
             }
         });
 
@@ -299,7 +302,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("smoke value: ", +data.value);
             console.log(data);
 
-            if (data.value==false && data.value==-1){
+            if (data.value==false && data.value<=-1){
                 vm.imgS = { srcSmoke: "img/sensors/status-smoke-0.png"};
             }else{
                 vm.imgS = { srcSmoke: "img/sensors/status-smoke-"+data.value+".png"};
@@ -342,6 +345,9 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                 case false:
                     vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};
                     break;
+                default:
+                    vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+                    
             }
         });
 
