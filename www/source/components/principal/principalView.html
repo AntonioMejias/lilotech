@@ -1,6 +1,6 @@
 <ion-content>
 	<ion-view view-title="Principal">
-		<ion-content ng-cloak>
+		<ion-content ng-cloak class="has-footer">
 
 
 			<!--<ion-slides  options="options" slider="data.slider">-->
@@ -15,9 +15,24 @@
 					<div class="box col col-33 delay" ng-repeat="element in principal.applications track by $index">
 						<div ng-click="principal.toggleApp(element)">
 							<img class="item-list-principal" ng-src="{{element.image}}">
-							<center><span class="label-principal" ng-class="element.label">{{element.label}}</span></center>
+							<center><span class="label-principal" ng-class="element.label">{{element.label | limitTo:principal.letterLimit}}</span></center>
 						</div>
 					</div>
+
+					<div class="box col col-33 delay" ng-repeat="element in principal.applications track by $index">
+						<div ng-click="principal.toggleApp(element)">
+							<img class="item-list-principal" ng-src="{{element.image}}">
+							<center><span class="label-principal" ng-class="element.label">{{element.label | limitTo:principal.letterLimit}}</span></center>
+						</div>
+					</div>
+
+					<div class="box col col-33 delay" ng-repeat="element in principal.applications track by $index">
+						<div ng-click="principal.toggleApp(element)">
+							<img class="item-list-principal" ng-src="{{element.image}}">
+							<center><span class="label-principal" ng-class="element.label">{{element.label | limitTo:principal.letterLimit}}</span></center>
+						</div>
+					</div>
+
 
 
 					<!--</ion-slide-page>-->
@@ -28,17 +43,15 @@
 
 			<!--</ion-slides>-->
 
-
-
-
 			<div ng-show="principal.cargando" class="loading">
                 <div class="spinner">
                     <ion-spinner icon="ripple" class="centered-spinner spinner-light"></ion-spinner>
                 </div>
             </div>
+			
+		</ion-content>
 
-
-			<div class="bar bar-footer bar-footer-principal">
+			<ion-footer-bar class="bar bar-footer bar-footer-principal">
 		      	<a class="tab-item">
 		        	<img ng-src="{{principal.imgN.srcNoise}}"  class="icon" >
 		      	</a>
@@ -58,8 +71,6 @@
 		      	<a class="tab-item">
 		        	<img ng-src="{{principal.imgS.srcSmoke}}"  class="icon">
 		      	</a>
-			</div>
-			
-		</ion-content>
+			</ion-footer-bar>
 	</ion-view>
 </ion-content>

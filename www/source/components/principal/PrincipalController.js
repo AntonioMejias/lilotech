@@ -16,6 +16,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
     function constructor() {
         var idRoom = $stateParams.idRoom;
         vm.cargando = true;
+        vm.letterLimit = 13;
     
         /*var idRoom;
 

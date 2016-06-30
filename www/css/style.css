@@ -328,7 +328,8 @@ input:focus::-webkit-input-placeholder { color:transparent !important; }
 
 .img_head_left{
     height: 32px;
-    width: 35px;
+    width: 39px;
+
 }
 
 .img_head_right{
@@ -406,7 +407,7 @@ input:focus::-webkit-input-placeholder { color:transparent !important; }
     width: 35%;
     position: absolute;
     padding: 2% 0 0 0;
-    top: 3px;
+    top: 5px;
     left: 2%;
 }
 
@@ -612,9 +613,10 @@ div.spinner {
     color: white;
 }
 
+.bar-footer {
+padding-top: 7px !important;    height: 48px !important;
 
-
-
+}
 
 .content-principal {
     padding-top: 100px;
@@ -635,7 +637,7 @@ div.spinner {
     display: table;
     margin: 0 auto;
     color: white;
-    font-size: 16pt;
+    font-size: 14pt;
 }
 
 
