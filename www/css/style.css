@@ -229,22 +229,14 @@ input:focus::-webkit-input-placeholder { color:transparent !important; }
 
 }
 .manillaAnimate {
-    -moz-transform: rotate(-25deg) translateX(-8%) translateY(25%);
-    -webkit-transform: rotate(-25deg) translateX(-8%) translateY(25%);
-    -o-transform: rotate(-25deg) translateX(-8%) translateY(25%);
-    -ms-transform: rotate(-25deg) translateX(-8%) translateY(25%);
-    transform: rotate(-30deg) translateX(-8%) translateY(25%);
+    -moz-transform: rotate(-25deg) translateX(-7%) translateY(25%);
+    -webkit-transform: rotate(-25deg) translateX(-7%) translateY(25%);
+    -o-transform: rotate(-25deg) translateX(-7%) translateY(25%);
+    -ms-transform: rotate(-25deg) translateX(-7%) translateY(25%);
+    transform: rotate(-30deg) translateX(-4.5%) translateY(29.4%);
     transition: .6s ease-out;
 
-} /*-8 20*/
-
-/*.manillaAnimateS {
-    -moz-transform: rotate3d(0, 0, 1, -38deg)  translate3d(0px,16px,0px);
-    -webkit-transform: rotate3d(0, 0, 1, -38deg)  translate3d(0px,16px,0px);
-    transform: rotate3d(0, 0, 1, -38deg)  translate3d(-24px,76px,0px);
-    transition: .6s ease-out;/*rotate(-25deg) translateX(0px) translateY(18px);*/
- /* transform: rotate3d(0, 0, 1, -38deg)  translate3d(-20px,74px,0px);* */
-
+} 
 .cerradura {
 
     -moz-transform: rotate(0deg) translateX(0px) translateY(0px);
@@ -260,15 +252,6 @@ input:focus::-webkit-input-placeholder { color:transparent !important; }
 
 }
 
-/*.cerradura:active {
-
-    -moz-transform: rotate(-90deg) translateX(0px)  ;
-    -webkit-transform: rotate(-90deg) translateX(0px) ;
-    -o-transform: rotate(-90deg) translateX(0px) ;
-    -ms-transform: rotate(-90deg) translateX(0px) ;
-    transform: rotate(-90deg) translateX(0px) ;
-
-}*/
 
 .right-content > * {
     float:right;
