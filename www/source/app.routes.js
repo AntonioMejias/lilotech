@@ -49,13 +49,6 @@ angular.module('lilotech')
                 },
                 resolve: {
                     Rooms: function(RoomService) {
-                        /*if (localStorageService.get("rooms")) {
-                            console.log("retornando desde el localStorageService");
-                            return localStorageService.get("rooms");
-                        }
-
-                        localStorageService.set("rooms", RoomService.getRooms());
-                        return localStorageService.get("rooms");*/
 
                         return RoomService.getRooms();
                     }

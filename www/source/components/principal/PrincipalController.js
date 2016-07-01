@@ -17,14 +17,6 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
         var idRoom = $stateParams.idRoom;
         vm.cargando = true;
         vm.letterLimit = 13;
-    
-        /*var idRoom;
-
-        if($stateParams.idRoom){
-           idRoom = $stateParams.idRoom;
-        } else{
-           idRoom = localStorageService.get('lastRoomSelected');
-        }*/
         vm.cargando;
 
         if (idRoom) {      
@@ -133,7 +125,6 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                 );
         } else {
             $state.go('home');
-            //idRoom === undefined
             console.log("No posee cuartos asociados a su dispositivo");
 
         }
@@ -187,7 +178,8 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
 
 
     function socketEvent() {
-        //console.log(SocketService);
+
+        //Aplicaciones
         SocketService.on('appmonitor', function(data) {
 
             var app_id = data.target.split("-")[2];
@@ -210,8 +202,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
 
                 return element;
             })
-            //console.log(data);
-            //console.log(app_id);
+
         });
 
         // Luminosity
@@ -265,7 +256,13 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("power range: ", +data.range);
             console.log(data);
 
-            switch (data.range){
+            if (data.range==false && data.range < 0){
+                vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
+            }else{
+                vm.imgP = { srcPower: "img/sensors/status-power-"+data.range+".png"};
+            }
+
+            /*switch (data.range){
                 case 0:
                     vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
                     break;
@@ -293,7 +290,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                 default:
                     vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
 
-            }
+            }*/
         });
 
         // Smoke
@@ -318,7 +315,13 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("temperature range: ", +data.range);
             console.log(data);
 
-            switch (data.range){
+             if (data.range==false && data.range < 0){
+                vm.imgT = { srcPower: "img/sensors/status-temperature-0.png"};
+            }else{
+                vm.imgT = { srcPower: "img/sensors/status-temperature-"+data.range+".png"};
+            }
+
+            /*switch (data.range){
                 case 0:
                     vm.imgT = { srcTemperature: "img/sensors/status-temperature-0.png"};   
                     break;
@@ -349,7 +352,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
                 default:
                     vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
                     
-            }
+            }*/
         });
 
 

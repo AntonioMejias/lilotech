@@ -71,23 +71,7 @@ angular.module('lilotech')
             console.log("An image filed: "+failed);
         });
 });
-/*.run(['localStorageService','$state','$rootScope', function(localStorageService,$state,$rootScope){
 
-      /*$rootScope.$on('$stateChangeStart', function (event, toState) { 
-            var sesion = localStorageService.get('session');
-             if(sesion) {
-
-            if(sesion.param.state) {
-                  console.log(sesion.path);
-                  $state.go(sesion.path,{idRoom:sesion.param.value})
-            } else {
-                  console.log(sesion.path)
-                $state.go(sesion.path)  
-            }
-      }
-
-    }  )
-}]);*/
 
 
         
