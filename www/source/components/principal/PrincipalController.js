@@ -227,7 +227,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("noise value: ", +data.value);
             console.log(data);
 
-            if (data.value==false && data.value<=-1){
+            if (data.value==false ||  data.value<=-1){
                 vm.imgN = { srcNoise: "img/sensors/status-noise-0.png"};
             }else{
                 vm.imgN = { srcNoise: "img/sensors/status-noise-"+data.value+".png"};
@@ -241,7 +241,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("movement value: ", +data.value);
             console.log(data);
 
-            if (data.value==false && data.value<=-1){
+            if (data.value==false ||  data.value<=-1){
                 vm.imgM = { srcMovement: "img/sensors/status-movement-0.png"};
             }else{
                 vm.imgM = { srcMovement: "img/sensors/status-movement-"+data.value+".png"};
@@ -256,7 +256,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("power range: ", +data.range);
             console.log(data);
 
-            if (data.range==false && data.range < 0){
+            if (data.range==false || data.range < 0){
                 vm.imgP = { srcPower: "img/sensors/status-power-0.png"};
             }else{
                 vm.imgP = { srcPower: "img/sensors/status-power-"+data.range+".png"};
@@ -300,7 +300,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("smoke value: ", +data.value);
             console.log(data);
 
-            if (data.value==false && data.value<=-1){
+            if (data.value==false ||  data.value<=-1){
                 vm.imgS = { srcSmoke: "img/sensors/status-smoke-0.png"};
             }else{
                 vm.imgS = { srcSmoke: "img/sensors/status-smoke-"+data.value+".png"};
@@ -315,7 +315,7 @@ function PrincipalController(SocketService, RoomService, ToggleService, $statePa
             console.log ("temperature range: ", +data.range);
             console.log(data);
 
-             if (data.range==false && data.range < 0){
+             if (data.range==false ||  data.range < 0) {
                 vm.imgT = { srcPower: "img/sensors/status-temperature-0.png"};
             }else{
                 vm.imgT = { srcPower: "img/sensors/status-temperature-"+data.range+".png"};
